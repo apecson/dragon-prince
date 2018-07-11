@@ -45,7 +45,8 @@ footer {
 .main-menu li {
   flex-grow: 1;
   list-style-image: none;
-  list-style-type: none; }
+  list-style-type: none;
+  text-align: center; }
 
 .countdown {
   background: #D10812;

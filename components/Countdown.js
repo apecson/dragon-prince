@@ -1,7 +1,7 @@
 import Countdown, { getTimeDifference } from 'react-countdown-now';
 
 // Random component
-const Completionist = () => <span>You are good to go!</span>;
+const Completionist = () => <div className="countdown">Watch on Netflix today</div>;
 
 // Renderer callback with condition
 const renderer = ({ event, days, hours, minutes, seconds, completed }) => {
