@@ -157,7 +157,7 @@ class Index extends Component {
             <div>
                 <Layout>
                     <CountBanner date={this.props.countdown.fields.targetDate} event={this.props.countdown.fields.body} />
-                    <div className="container">
+                    <div className="container mt-1">
                         <h2>The Latest</h2>
                         {this.renderPosts()}
                     </div>

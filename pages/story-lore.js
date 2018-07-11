@@ -23,7 +23,7 @@ class StoryLore extends Component {
     render() {
         return (
             <Layout>
-                <div class="container">
+                <div className="container mt-1">
                     <h3>Story & Lore</h3>
 
                 </div>

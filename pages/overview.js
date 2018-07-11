@@ -23,10 +23,10 @@ class Overview extends Component {
     }
 
     render() {
-        console.log(this.props.about)
+        // console.log(this.props.about)
         return (
             <Layout>
-                <div className="container">
+                <div className="container pt-4">
                     <h3>Story & Lore</h3>
                     <h2>Story Overview</h2>
                     <p>{renderHTML(markdown.toHTML(this.props.about.fields.body))}</p>
