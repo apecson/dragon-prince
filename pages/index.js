@@ -45,7 +45,7 @@ class Index extends Component {
                 <div className="row">
                     <div className="col hero-post large">
                         <div className="post-image">
-                            {/* <img src={items[0].fields.photos[0].fields.file.url} /> */}
+                            <img src={items[0].fields ? items[0].fields.photos[0].fields.file.url : null} />
                         </div>
                         <div className="post-content">
                             {items[0].fields.title}
@@ -157,7 +157,7 @@ class Index extends Component {
             <div>
                 <Layout>
                     <CountBanner date={this.props.countdown.fields.targetDate} event={this.props.countdown.fields.body} />
-                    <div className="container mt-1">
+                    <div className="container mt-1 pb-4">
                         <h2>The Latest</h2>
                         {this.renderPosts()}
                     </div>

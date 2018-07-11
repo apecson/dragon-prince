@@ -12,7 +12,7 @@ const Navigation = () => {
             >
                 <MenuItem><Link prefetch href="/"><a>Home</a></Link></MenuItem>
                 <MenuItem><Link prefetch href="/newsfeed"><a>Newsfeed</a></Link></MenuItem>
-                <SubMenu title="Story & Lore" key="1" popupOffset="[0,0]">
+                <SubMenu title="Story & Lore" key="1" popupOffset={[0, 0]}>
                     <MenuItem key="1-1"><Link prefetch href="/overview"><a>Story Overview</a></Link></MenuItem>
                     <MenuItem key="1-2"><Link prefetch href="/characters"><a>Characters</a></Link></MenuItem>
                     <MenuItem key="1-3"><Link prefetch href="/world"><a>World</a></Link></MenuItem>

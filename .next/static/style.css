@@ -360,8 +360,10 @@ footer {
   .hero-post.large {
     height: 430px; }
 
-.character-thumb .character-image {
-  max-width: 342px; }
+.character-thumb {
+  padding: 0;
+  max-width: 30%;
+  cursor: pointer; }
 
 .character-hero {
   height: auto;
@@ -370,5 +372,11 @@ footer {
 .character-body img {
   height: auto;
   width: 100%; }
+
+.article-image {
+  border: 1px solid #FFFFFF; }
+
+.character-row {
+  justify-content: space-around; }
 
 /*# sourceMappingURL=style.css.map*/

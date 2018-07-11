@@ -9,25 +9,26 @@ const client = createClient({
     accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
 });
 
-class Newsfeed extends Component {
+const fallback = '//images.ctfassets.net/sykm2zb64bkw/3hRcpuODd6S8uGOicqKoGI/39267d207cc393734d6a30ac0c890c93/moonshadowForm.png';
 
+class Newsfeed extends Component {
 
     static async getInitialProps() {
         // Get Newsfeed Articles
         const pinned = await client.getEntries({
-            'fields.articleType': 'Standard Article',
-            'fields.isPinned': true,
+            'fields.articleType[in]': 'Standard Article, Single Video, Gallery, Poll',
+            'fields.isPinned': 'true',
             'content_type': 'article',
             order: 'sys.createdAt',
             limit: 2
 
         });
         const articles = await client.getEntries({
-            'fields.articleType': 'Standard Article',
+            'fields.articleType[in]': 'Standard Article, Single Video, Gallery, Poll',
             'content_type': 'article',
             order: 'sys.createdAt'
         });
-        console.log(articles);
+        console.log(pinned);
         return {
             pinned,
             articles
@@ -42,12 +43,9 @@ class Newsfeed extends Component {
         return _.map(this.props.pinned.items, (article, index) => {
             return (
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
-                    <li className={`article-thumb article-${index}`}>
-                        <div className="article-image-container">
-                            {/* {article.fields.heroImage.fields.file.url ? 'exists' : 'doesnt'} */}
-                            {/* <img className="article-image" alt={article.fields.title} src={article.fields.heroImage.fields.file.url ? article.fields.heroImage.fields.file.url : null} /> */}
-                        </div>
-                        <div className="article-content">
+                    <li className={`card bg-dark text-white article-thumb pinned article-${index}`}>
+                        <img className="card-img article-image" alt={article.fields.title} src={article.fields.heroImage ? article.fields.heroImage.fields.file.url : fallback} />
+                        <div className="card-img-overlay article-content">
                             <h3>{article.fields.title}</h3>
                             <p>{article.fields.summary}</p>
                         </div>
@@ -58,19 +56,19 @@ class Newsfeed extends Component {
     }
 
     renderArticles() {
-
         if (!this.props.articles.items) {
             return <div>No articles to show</div>
         }
         return _.map(this.props.articles.items, (article, index) => {
             return (
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
-                    <li className={`article-thumb article-${index}`}>
-                        <div className="article-image-container">
-                            {/* <img className="article-image" alt={article.fields.title} src={article.fields.heroImage.fields.file.url ? article.fields.heroImage.fields.file.url : null} /> */}
+                    <li className={`article-thumb media article-${index}`}>
+                        <div className="media-left mr-4 mb-4 article-image-container">
+                            <img className="media-object article-image" alt={article.fields.title} width="360" height="200" src={article.fields.heroImage ? article.fields.heroImage.fields.file.url : fallback} />
                         </div>
-                        <div className="article-content">
-                            <h3>{article.fields.title}</h3>
+                        <div className="media-body article-content">
+                            <h3 className="media-heading">{article.fields.title}</h3>
+                            {/* {article.sys.updatedAt} */}
                             <p>{article.fields.summary}</p>
                         </div>
                     </li>
@@ -82,10 +80,12 @@ class Newsfeed extends Component {
     render() {
         return (
             <Layout>
-                <div className="container">
-                    <h3>Newsfeed</h3>
-                    {this.renderPinned()}
-                    <ul>
+                <div className="container pt-4 pb-4">
+                    <h3>News Feed</h3>
+                    <ul className="list-unstyled">
+                        {this.renderPinned()}
+                    </ul>
+                    <ul className="list-unstyled">
                         {this.renderArticles()}
                     </ul>
                 </div>

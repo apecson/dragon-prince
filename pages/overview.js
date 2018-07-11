@@ -30,10 +30,26 @@ class Overview extends Component {
                     <h3>Story & Lore</h3>
                     <h2>Story Overview</h2>
                     <p>{renderHTML(markdown.toHTML(this.props.about.fields.body))}</p>
-                    <Link href="/characters"><a>Characters</a></Link>
-                    <Link href="/world"><a>World</a></Link>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div className="card text-white bg-dark mb-3">
+                                <div className="card-body">
+                                    <h5 className="card-title">Characters</h5>
+                                    <Link href="/characters"><a href="#" className="btn btn-primary">Meet the Characters</a></Link>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div className="card text-white bg-dark mb-3">
+                                <div className="card-body">
+                                    <h5 className="card-title">World</h5>
+                                    <Link href="/world"><a href="#" className="btn btn-primary">Explore the World</a></Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </Layout>
+            </Layout >
         )
     }
 }

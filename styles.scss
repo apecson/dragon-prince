@@ -417,9 +417,9 @@ footer {
 }
 
 .character-thumb {
-    .character-image {
-        max-width: 342px;
-    }
+    padding: 0;
+    max-width: 30%;
+    cursor: pointer;
 }
 
 .character-hero {
@@ -432,4 +432,12 @@ footer {
         height: auto;
         width: 100%;
     }
+}
+
+.article-image {
+    border: 1px solid #FFFFFF;
+}
+
+.character-row {
+    justify-content: space-around;
 }
