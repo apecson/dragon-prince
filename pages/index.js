@@ -45,7 +45,7 @@ class Index extends Component {
                 <div className="row">
                     <div className="col hero-post large">
                         <div className="post-image">
-                            <img src={items[0].fields ? items[0].fields.photos[0].fields.file.url : null} />
+                            {/* <img src={items[0].fields ? items[0].fields.photos[0].fields.file.url : null} /> */}
                         </div>
                         <div className="post-content">
                             {items[0].fields.title}
