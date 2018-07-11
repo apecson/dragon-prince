@@ -3,18 +3,19 @@ import Menu, { SubMenu, MenuItem } from 'rc-menu';
 
 const Navigation = () => {
     return (
-        <Menu>
-
-            <MenuItem><Link prefetch href="/"><li className="nav-item">Home</li></Link></MenuItem>
-            <MenuItem><Link prefetch href="/newsfeed"><li className="nav-item">Newsfeed</li></Link></MenuItem>
-            <SubMenu title="Story & Lore">
-                <MenuItem><Link prefetch href="/overview"><li className="nav-item-child">Story Overview</li></Link></MenuItem>
-                <MenuItem><Link prefetch href="/characters"><li className="nav-item-child">Characters</li></Link></MenuItem>
-                <MenuItem><Link prefetch href="/world"><li className="nav-item-child">World</li></Link></MenuItem>
-            </SubMenu>
-            <MenuItem><li className="nav-item">Fun Stuff</li></MenuItem>
-            <MenuItem><li className="nav-item">Behind The Scenes</li></MenuItem>
-        </Menu>
+        <div className="main-menu-outer">
+            <Menu mode="inline" className="main-menu container mx-auto">
+                <MenuItem><Link prefetch href="/">Home</Link></MenuItem>
+                <MenuItem><Link prefetch href="/newsfeed">Newsfeed</Link></MenuItem>
+                <SubMenu title="Story & Lore">
+                    <MenuItem><Link prefetch href="/overview">Story Overview</Link></MenuItem>
+                    <MenuItem><Link prefetch href="/characters">Characters</Link></MenuItem>
+                    <MenuItem><Link prefetch href="/world">World</Link></MenuItem>
+                </SubMenu>
+                <MenuItem>Fun Stuff</MenuItem>
+                <MenuItem>Behind The Scenes</MenuItem>
+            </Menu>
+        </div>
     )
 }
 
