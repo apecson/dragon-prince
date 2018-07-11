@@ -67,12 +67,34 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
 
-/***/ "./pages/_document.js":
+module.exports = require("react");
+
+/***/ }),
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(12);
+
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -81,15 +103,14 @@ module.exports =
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var _jsxFileName = "/Users/aaron/Sites/dragonprince/pages/_document.js";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__("react");
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _document = __webpack_require__("next/document");
+var _document = __webpack_require__(13);
 
 var _document2 = _interopRequireDefault(_document);
 
@@ -115,56 +136,19 @@ var MyDocument = function (_Document) {
         value: function render() {
             return _react2.default.createElement(
                 "html",
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 6
-                    }
-                },
+                null,
                 _react2.default.createElement(
                     _document.Head,
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 7
-                        }
-                    },
-                    _react2.default.createElement("link", { href: "https://fonts.googleapis.com/css?family=Roboto", rel: "stylesheet", __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 8
-                        }
-                    }),
-                    _react2.default.createElement("link", { rel: "stylesheet", href: "/static/bootstrap.min.css", __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 9
-                        }
-                    }),
-                    _react2.default.createElement("link", { rel: "stylesheet", href: "/_next/static/style.css", __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 10
-                        }
-                    })
+                    null,
+                    _react2.default.createElement("link", { href: "https://fonts.googleapis.com/css?family=Roboto", rel: "stylesheet" }),
+                    _react2.default.createElement("link", { rel: "stylesheet", href: "/static/bootstrap.min.css" }),
+                    _react2.default.createElement("link", { rel: "stylesheet", href: "/_next/static/style.css" })
                 ),
                 _react2.default.createElement(
                     "body",
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 12
-                        }
-                    },
-                    _react2.default.createElement(_document.Main, {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 13
-                        }
-                    }),
-                    _react2.default.createElement(_document.NextScript, {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 14
-                        }
-                    })
+                    null,
+                    _react2.default.createElement(_document.Main, null),
+                    _react2.default.createElement(_document.NextScript, null)
                 )
             );
         }
@@ -176,28 +160,10 @@ var MyDocument = function (_Document) {
 exports.default = MyDocument;
 
 /***/ }),
-
-/***/ 0:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./pages/_document.js");
-
-
-/***/ }),
-
-/***/ "next/document":
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("next/document");
 
-/***/ }),
-
-/***/ "react":
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
 /***/ })
-
-/******/ });
-//# sourceMappingURL=_document.js.map
+/******/ ]);
