@@ -67,33 +67,666 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+/******/ ({
 
-module.exports = require("react");
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-module.exports = require("next/link");
-
-/***/ }),
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */
+/***/ "./components/Connect.js":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(6);
+"use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = "/Users/aaron/Sites/dragonprince/components/Connect.js";
+
+var _react = __webpack_require__("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Connect = function Connect() {
+    return _react2.default.createElement(
+        "section",
+        { className: "connect", __source: {
+                fileName: _jsxFileName,
+                lineNumber: 3
+            }
+        },
+        _react2.default.createElement(
+            "div",
+            { className: "connect-inner", __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 4
+                }
+            },
+            _react2.default.createElement(
+                "h2",
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 5
+                    }
+                },
+                "Connect With Us"
+            )
+        )
+    );
+};
+exports.default = Connect;
 
 /***/ }),
-/* 6 */
+
+/***/ "./components/Countdown.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = "/Users/aaron/Sites/dragonprince/components/Countdown.js";
+
+var _react = __webpack_require__("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactCountdownNow = __webpack_require__("react-countdown-now");
+
+var _reactCountdownNow2 = _interopRequireDefault(_reactCountdownNow);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Random component
+var Completionist = function Completionist() {
+    return _react2.default.createElement(
+        "span",
+        {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 4
+            }
+        },
+        "You are good to go!"
+    );
+};
+
+// Renderer callback with condition
+var renderer = function renderer(_ref) {
+    var event = _ref.event,
+        days = _ref.days,
+        hours = _ref.hours,
+        minutes = _ref.minutes,
+        seconds = _ref.seconds,
+        completed = _ref.completed;
+
+
+    if (completed) {
+        // Render a completed state
+        return _react2.default.createElement(Completionist, {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 11
+            }
+        });
+    } else {
+        // Render a countdown
+        return _react2.default.createElement(
+            "div",
+            { className: "countdown", __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 14
+                }
+            },
+            event,
+            " ",
+            days,
+            " days, ",
+            hours,
+            " hours, ",
+            minutes,
+            " minutes, ",
+            seconds,
+            " seconds"
+        );
+    }
+};
+
+var CountBanner = function CountBanner(props) {
+    return _react2.default.createElement(_reactCountdownNow2.default, {
+        date: props.date,
+        renderer: renderer,
+        event: props.event,
+        __source: {
+            fileName: _jsxFileName,
+            lineNumber: 20
+        }
+    });
+};
+
+exports.default = CountBanner;
+
+/***/ }),
+
+/***/ "./components/Footer.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = "/Users/aaron/Sites/dragonprince/components/Footer.js";
+
+var _react = __webpack_require__("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Footer = function Footer() {
+    return _react2.default.createElement(
+        "footer",
+        {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 2
+            }
+        },
+        _react2.default.createElement(
+            "div",
+            { className: "container", __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 3
+                }
+            },
+            "\xA9 Copyright Wonderstorm"
+        )
+    );
+};
+
+exports.default = Footer;
+
+/***/ }),
+
+/***/ "./components/Header.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = '/Users/aaron/Sites/dragonprince/components/Header.js';
+
+var _react = __webpack_require__("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _link = __webpack_require__("next/link");
+
+var _link2 = _interopRequireDefault(_link);
+
+var _Navigation = __webpack_require__("./components/Navigation.js");
+
+var _Navigation2 = _interopRequireDefault(_Navigation);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var linkStyle = {
+    marginRight: 15
+};
+
+var Header = function Header() {
+    return _react2.default.createElement(
+        'header',
+        {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 9
+            }
+        },
+        _react2.default.createElement(
+            'div',
+            { className: 'container', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 10
+                }
+            },
+            _react2.default.createElement(
+                'ul',
+                { className: 'social-links', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 11
+                    }
+                },
+                _react2.default.createElement(
+                    'li',
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 12
+                        }
+                    },
+                    _react2.default.createElement(
+                        _link2.default,
+                        { href: '/', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 12
+                            }
+                        },
+                        _react2.default.createElement(
+                            'a',
+                            { style: linkStyle, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 12
+                                }
+                            },
+                            'Twitter'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'li',
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 13
+                        }
+                    },
+                    _react2.default.createElement(
+                        _link2.default,
+                        { href: '/', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 13
+                            }
+                        },
+                        _react2.default.createElement(
+                            'a',
+                            { style: linkStyle, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 13
+                                }
+                            },
+                            'Facebook'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'li',
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 14
+                        }
+                    },
+                    _react2.default.createElement(
+                        _link2.default,
+                        { href: '/', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 14
+                            }
+                        },
+                        _react2.default.createElement(
+                            'a',
+                            { style: linkStyle, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 14
+                                }
+                            },
+                            'Tumblr'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'li',
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 15
+                        }
+                    },
+                    _react2.default.createElement(
+                        _link2.default,
+                        { href: '/', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 15
+                            }
+                        },
+                        _react2.default.createElement(
+                            'a',
+                            { style: linkStyle, __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 15
+                                }
+                            },
+                            'Instagram'
+                        )
+                    )
+                )
+            ),
+            _react2.default.createElement(
+                'div',
+                { className: 'main-logo', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 17
+                    }
+                },
+                _react2.default.createElement(
+                    _link2.default,
+                    { href: '/', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 17
+                        }
+                    },
+                    _react2.default.createElement('img', { className: 'mx-auto d-block', src: '/static/logo.png', alt: 'The Dragon Prince', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 17
+                        }
+                    })
+                )
+            )
+        ),
+        _react2.default.createElement(_Navigation2.default, {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 19
+            }
+        })
+    );
+};
+
+exports.default = Header;
+
+/***/ }),
+
+/***/ "./components/MyLayout.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = '/Users/aaron/Sites/dragonprince/components/MyLayout.js';
+
+var _react = __webpack_require__("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Header = __webpack_require__("./components/Header.js");
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _Footer = __webpack_require__("./components/Footer.js");
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
+__webpack_require__("./styles.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Layout = function Layout(props) {
+    return _react2.default.createElement(
+        'div',
+        {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 7
+            }
+        },
+        _react2.default.createElement(_Header2.default, {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 8
+            }
+        }),
+        _react2.default.createElement(
+            'main',
+            { className: 'content', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 9
+                }
+            },
+            props.children
+        ),
+        _react2.default.createElement(_Footer2.default, {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 13
+            }
+        })
+    );
+};
+
+exports.default = Layout;
+
+/***/ }),
+
+/***/ "./components/Navigation.js":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _jsxFileName = '/Users/aaron/Sites/dragonprince/components/Navigation.js';
+
+var _react = __webpack_require__("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _link = __webpack_require__("next/link");
+
+var _link2 = _interopRequireDefault(_link);
+
+var _rcMenu = __webpack_require__("rc-menu");
+
+var _rcMenu2 = _interopRequireDefault(_rcMenu);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Navigation = function Navigation() {
+    return _react2.default.createElement(
+        _rcMenu2.default,
+        {
+            __source: {
+                fileName: _jsxFileName,
+                lineNumber: 6
+            }
+        },
+        _react2.default.createElement(
+            _rcMenu.MenuItem,
+            {
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 8
+                }
+            },
+            _react2.default.createElement(
+                _link2.default,
+                { prefetch: true, href: '/', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 8
+                    }
+                },
+                _react2.default.createElement(
+                    'li',
+                    { className: 'nav-item', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 8
+                        }
+                    },
+                    'Home'
+                )
+            )
+        ),
+        _react2.default.createElement(
+            _rcMenu.MenuItem,
+            {
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 9
+                }
+            },
+            _react2.default.createElement(
+                _link2.default,
+                { prefetch: true, href: '/newsfeed', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 9
+                    }
+                },
+                _react2.default.createElement(
+                    'li',
+                    { className: 'nav-item', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 9
+                        }
+                    },
+                    'Newsfeed'
+                )
+            )
+        ),
+        _react2.default.createElement(
+            _rcMenu.SubMenu,
+            { title: 'Story & Lore', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 10
+                }
+            },
+            _react2.default.createElement(
+                _rcMenu.MenuItem,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 11
+                    }
+                },
+                _react2.default.createElement(
+                    _link2.default,
+                    { prefetch: true, href: '/overview', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 11
+                        }
+                    },
+                    _react2.default.createElement(
+                        'li',
+                        { className: 'nav-item-child', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 11
+                            }
+                        },
+                        'Story Overview'
+                    )
+                )
+            ),
+            _react2.default.createElement(
+                _rcMenu.MenuItem,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 12
+                    }
+                },
+                _react2.default.createElement(
+                    _link2.default,
+                    { prefetch: true, href: '/characters', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 12
+                        }
+                    },
+                    _react2.default.createElement(
+                        'li',
+                        { className: 'nav-item-child', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 12
+                            }
+                        },
+                        'Characters'
+                    )
+                )
+            ),
+            _react2.default.createElement(
+                _rcMenu.MenuItem,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 13
+                    }
+                },
+                _react2.default.createElement(
+                    _link2.default,
+                    { prefetch: true, href: '/world', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 13
+                        }
+                    },
+                    _react2.default.createElement(
+                        'li',
+                        { className: 'nav-item-child', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 13
+                            }
+                        },
+                        'World'
+                    )
+                )
+            )
+        ),
+        _react2.default.createElement(
+            _rcMenu.MenuItem,
+            {
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 15
+                }
+            },
+            _react2.default.createElement(
+                'li',
+                { className: 'nav-item', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 15
+                    }
+                },
+                'Fun Stuff'
+            )
+        ),
+        _react2.default.createElement(
+            _rcMenu.MenuItem,
+            {
+                __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 16
+                }
+            },
+            _react2.default.createElement(
+                'li',
+                { className: 'nav-item', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 16
+                    }
+                },
+                'Behind The Scenes'
+            )
+        )
+    );
+};
+
+exports.default = Navigation;
+
+/***/ }),
+
+/***/ "./pages/index.js":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -103,33 +736,39 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _regenerator = __webpack_require__(7);
+var _regenerator = __webpack_require__("babel-runtime/regenerator");
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
+var _jsxFileName = '/Users/aaron/Sites/dragonprince/pages/index.js';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(0);
+var _react = __webpack_require__("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _contentful = __webpack_require__(8);
+var _contentful = __webpack_require__("contentful");
 
-var _lodash = __webpack_require__(9);
+var _lodash = __webpack_require__("lodash");
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _MyLayout = __webpack_require__(10);
+var _MyLayout = __webpack_require__("./components/MyLayout.js");
 
 var _MyLayout2 = _interopRequireDefault(_MyLayout);
 
-var _Countdown = __webpack_require__(16);
+var _Countdown = __webpack_require__("./components/Countdown.js");
 
 var _Countdown2 = _interopRequireDefault(_Countdown);
 
-var _link = __webpack_require__(1);
+var _link = __webpack_require__("next/link");
 
 var _link2 = _interopRequireDefault(_link);
+
+var _Connect = __webpack_require__("./components/Connect.js");
+
+var _Connect2 = _interopRequireDefault(_Connect);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -158,28 +797,128 @@ var Index = function (_Component) {
     _createClass(Index, [{
         key: 'renderPosts',
         value: function renderPosts() {
-            return _lodash2.default.map(this.props.posts.items, function (post, index) {
-                console.log(post);
+            var items = this.props.posts.items;
+            //(this.props.countdown);
+
+            if (!items) {
                 return _react2.default.createElement(
-                    'li',
-                    { key: post.sys.id, className: 'post-thumb post-' + index },
-                    _react2.default.createElement('div', { className: 'post-image' }),
+                    'div',
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 39
+                        }
+                    },
+                    'Loading...'
+                );
+            }
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'container', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 43
+                    }
+                },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 44
+                        }
+                    },
                     _react2.default.createElement(
                         'div',
-                        { className: 'post-content' },
+                        { className: 'col-8', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 45
+                            }
+                        },
+                        _react2.default.createElement('div', { className: 'post-image', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 46
+                            }
+                        }),
+                        _react2.default.createElement('div', { className: 'post-content', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 49
+                            }
+                        })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 54
+                            }
+                        },
                         _react2.default.createElement(
-                            'h3',
-                            null,
-                            post.fields.title
+                            'div',
+                            { className: 'row', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 55
+                                }
+                            },
+                            _react2.default.createElement('div', { className: 'post-image', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 56
+                                }
+                            }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'post-content', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 59
+                                    }
+                                },
+                                items[1].fields.title,
+                                items[1].fields.summary
+                            )
                         ),
                         _react2.default.createElement(
-                            'p',
-                            null,
-                            post.fields.summary
+                            'div',
+                            { className: 'row', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 64
+                                }
+                            },
+                            _react2.default.createElement('div', { className: 'post-image', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 65
+                                }
+                            }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'post-content', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 68
+                                    }
+                                },
+                                items[2].fields.title,
+                                items[2].fields.summary
+                            )
                         )
                     )
-                );
-            });
+                ),
+                _react2.default.createElement('div', { className: 'row', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 75
+                    }
+                })
+            );
+            // return _.map(this.props.posts.items, (post, index) => {
+            //     return (
+            //         <li key={post.sys.id} className={`post-thumb post-${index}`}>
+            //             <div className="post-image">
+
+            //             </div>
+            //             <div className="post-content">
+            //                 <h3>{post.fields.title}</h3>
+            //                 <p>{post.fields.summary}</p>
+            //             </div>
+            //         </li>
+            //     )
+            // });
         }
     }, {
         key: 'renderAbout',
@@ -188,56 +927,109 @@ var Index = function (_Component) {
                 about = _props.about,
                 video = _props.video;
 
-
             return _react2.default.createElement(
                 'section',
-                { className: 'home__about' },
+                { className: 'home__about', __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 98
+                    }
+                },
                 _react2.default.createElement(
                     'div',
-                    { className: 'home__about-inner' },
+                    { className: 'home__about-inner', __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 99
+                        }
+                    },
                     _react2.default.createElement(
                         'div',
-                        { className: 'home__about-child home__about-left' },
+                        { className: 'home__about-child home__about-left', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 100
+                            }
+                        },
                         _react2.default.createElement('iframe', { width: '557', height: '340',
-                            src: video.fields.youTubeVideo, frameBorder: '0' })
+                            src: video.fields.youTubeVideo, frameBorder: '0', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 101
+                            }
+                        })
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'home__about-child home__about-right' },
+                        { className: 'home__about-child home__about-right', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 105
+                            }
+                        },
                         _react2.default.createElement(
                             'h2',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 106
+                                }
+                            },
                             about.fields.title
                         ),
                         _react2.default.createElement(
                             'p',
-                            null,
-                            about.fields.body
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 107
+                                }
+                            },
+                            about.fields.summary
                         ),
                         _react2.default.createElement(
                             _link2.default,
-                            null,
+                            { href: 'explore', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 108
+                                }
+                            },
                             _react2.default.createElement(
                                 'button',
-                                { className: 'btn btn-primary' },
+                                { className: 'btn btn-primary', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 109
+                                    }
+                                },
                                 'Explore The World'
                             )
                         ),
                         _react2.default.createElement(
                             _link2.default,
-                            null,
+                            { href: 'characters', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 111
+                                }
+                            },
                             _react2.default.createElement(
                                 'button',
-                                { className: 'btn btn-primary' },
+                                { className: 'btn btn-primary', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 112
+                                    }
+                                },
                                 'Meet The Characters'
                             )
                         ),
                         _react2.default.createElement(
                             _link2.default,
-                            null,
+                            { href: '/story-lore', __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 114
+                                }
+                            },
                             _react2.default.createElement(
                                 'button',
-                                { className: 'btn btn-primary' },
+                                { className: 'btn btn-primary', __source: {
+                                        fileName: _jsxFileName,
+                                        lineNumber: 115
+                                    }
+                                },
                                 'Discover The Lore'
                             )
                         )
@@ -253,33 +1045,72 @@ var Index = function (_Component) {
             if (!posts) {
                 return _react2.default.createElement(
                     'div',
-                    null,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 126
+                        }
+                    },
                     'Loading...'
                 );
             }
 
             return _react2.default.createElement(
                 'div',
-                null,
+                {
+                    __source: {
+                        fileName: _jsxFileName,
+                        lineNumber: 130
+                    }
+                },
                 _react2.default.createElement(
                     _MyLayout2.default,
-                    null,
-                    _react2.default.createElement(_Countdown2.default, null),
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 131
+                        }
+                    },
+                    _react2.default.createElement(_Countdown2.default, { date: this.props.countdown.fields.targetDate, event: this.props.countdown.fields.body, __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 132
+                        }
+                    }),
                     _react2.default.createElement(
                         'div',
-                        { 'class': 'container' },
+                        { className: 'container', __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 133
+                            }
+                        },
                         _react2.default.createElement(
                             'h2',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 134
+                                }
+                            },
                             'The Latest'
                         ),
                         _react2.default.createElement(
                             'ul',
-                            null,
+                            {
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 135
+                                }
+                            },
                             this.renderPosts()
                         )
                     ),
-                    this.renderAbout()
+                    this.renderAbout(),
+                    _react2.default.createElement(_Connect2.default, {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 140
+                        }
+                    })
                 )
             );
         }
@@ -287,13 +1118,14 @@ var Index = function (_Component) {
         key: 'getInitialProps',
         value: function () {
             var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
-                var posts, about, video;
+                var posts, about, video, countdown;
                 return _regenerator2.default.wrap(function _callee$(_context) {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
                                 _context.next = 2;
                                 return client.getEntries({
+                                    content_type: 'article',
                                     limit: 6,
                                     order: 'sys.createdAt'
                                 });
@@ -310,13 +1142,21 @@ var Index = function (_Component) {
 
                             case 8:
                                 video = _context.sent;
+                                _context.next = 11;
+                                return client.getEntry('6e0O82QvFSU04akAUaQkWu');
+
+                            case 11:
+                                countdown = _context.sent;
+                                //countdown
+                                console.log(countdown);
                                 return _context.abrupt('return', {
                                     posts: posts,
                                     about: about,
-                                    video: video
+                                    video: video,
+                                    countdown: countdown
                                 });
 
-                            case 10:
+                            case 14:
                             case 'end':
                                 return _context.stop();
                         }
@@ -338,320 +1178,70 @@ var Index = function (_Component) {
 exports.default = Index;
 
 /***/ }),
-/* 7 */
+
+/***/ "./styles.scss":
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("./pages/index.js");
+
+
+/***/ }),
+
+/***/ "babel-runtime/regenerator":
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/regenerator");
 
 /***/ }),
-/* 8 */
+
+/***/ "contentful":
 /***/ (function(module, exports) {
 
 module.exports = require("contentful");
 
 /***/ }),
-/* 9 */
+
+/***/ "lodash":
 /***/ (function(module, exports) {
 
 module.exports = require("lodash");
 
 /***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Header = __webpack_require__(11);
-
-var _Header2 = _interopRequireDefault(_Header);
-
-var _Footer = __webpack_require__(13);
-
-var _Footer2 = _interopRequireDefault(_Footer);
-
-var _Connect = __webpack_require__(14);
-
-var _Connect2 = _interopRequireDefault(_Connect);
-
-__webpack_require__(15);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var layoutStyle = {};
-
-var Layout = function Layout(props) {
-    return _react2.default.createElement(
-        'div',
-        { style: layoutStyle },
-        _react2.default.createElement(_Header2.default, null),
-        _react2.default.createElement(
-            'main',
-            { className: 'content' },
-            props.children,
-            _react2.default.createElement(_Connect2.default, null)
-        ),
-        _react2.default.createElement(_Footer2.default, null)
-    );
-};
-
-exports.default = Layout;
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _link = __webpack_require__(1);
-
-var _link2 = _interopRequireDefault(_link);
-
-var _Navigation = __webpack_require__(12);
-
-var _Navigation2 = _interopRequireDefault(_Navigation);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var linkStyle = {
-    marginRight: 15
-};
-
-var Header = function Header() {
-    return _react2.default.createElement(
-        'header',
-        null,
-        _react2.default.createElement(
-            'div',
-            { className: 'container' },
-            _react2.default.createElement(
-                'ul',
-                { className: 'social-links' },
-                _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                        _link2.default,
-                        { href: '/' },
-                        _react2.default.createElement(
-                            'a',
-                            { style: linkStyle },
-                            'Twitter'
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                        _link2.default,
-                        { href: '/' },
-                        _react2.default.createElement(
-                            'a',
-                            { style: linkStyle },
-                            'Facebook'
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                        _link2.default,
-                        { href: '/' },
-                        _react2.default.createElement(
-                            'a',
-                            { style: linkStyle },
-                            'Tumblr'
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'li',
-                    null,
-                    _react2.default.createElement(
-                        _link2.default,
-                        { href: '/' },
-                        _react2.default.createElement(
-                            'a',
-                            { style: linkStyle },
-                            'Instagram'
-                        )
-                    )
-                )
-            ),
-            _react2.default.createElement(
-                'div',
-                { className: 'main-logo' },
-                _react2.default.createElement('img', { className: 'mx-auto d-block', src: '/static/logo.png', alt: 'The Dragon Prince' })
-            )
-        ),
-        _react2.default.createElement(_Navigation2.default, null)
-    );
-};
-
-exports.default = Header;
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Navigation = function Navigation() {
-    return _react2.default.createElement(
-        "div",
-        { className: "navigation" },
-        _react2.default.createElement(
-            "ul",
-            { className: "navigation-inner" },
-            _react2.default.createElement(
-                "li",
-                { className: "nav-item" },
-                "Link"
-            ),
-            _react2.default.createElement(
-                "li",
-                { className: "nav-item" },
-                "Link"
-            ),
-            _react2.default.createElement(
-                "li",
-                { className: "nav-item" },
-                "Link"
-            ),
-            _react2.default.createElement(
-                "li",
-                { className: "nav-item" },
-                "Link"
-            )
-        )
-    );
-};
-
-exports.default = Navigation;
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Footer = function Footer() {
-    return _react2.default.createElement(
-        "div",
-        null,
-        "Copyright Wonderstorm"
-    );
-};
-
-exports.default = Footer;
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Connect = function Connect() {
-    return _react2.default.createElement(
-        "section",
-        { className: "connect" },
-        _react2.default.createElement(
-            "div",
-            { className: "connect-inner" },
-            _react2.default.createElement(
-                "h2",
-                null,
-                "Connect With Us"
-            )
-        )
-    );
-};
-exports.default = Connect;
-
-/***/ }),
-/* 15 */
+/***/ "next/link":
 /***/ (function(module, exports) {
 
-
+module.exports = require("next/link");
 
 /***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+/***/ "rc-menu":
+/***/ (function(module, exports) {
 
+module.exports = require("rc-menu");
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
+/***/ }),
 
-var _react = __webpack_require__(0);
+/***/ "react":
+/***/ (function(module, exports) {
 
-var _react2 = _interopRequireDefault(_react);
+module.exports = require("react");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+/***/ }),
 
-var Countdown = function Countdown() {
-    return _react2.default.createElement(
-        "div",
-        { className: "countdown" },
-        "Watch on Netflix in XXXXXXX Days"
-    );
-};
+/***/ "react-countdown-now":
+/***/ (function(module, exports) {
 
-exports.default = Countdown;
+module.exports = require("react-countdown-now");
 
 /***/ })
-/******/ ]);
+
+/******/ });
+//# sourceMappingURL=index.js.map

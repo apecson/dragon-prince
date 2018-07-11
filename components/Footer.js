@@ -1,8 +1,9 @@
 const Footer = () => (
-    <div>
-
-        Copyright Wonderstorm
-    </div>
+    <footer>
+        <div className="container">
+            &copy; Copyright Wonderstorm
+        </div>
+    </footer>
 )
 
 export default Footer
