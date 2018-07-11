@@ -25,7 +25,8 @@ class World extends Component {
         return (
             <Layout>
                 <div className="container">
-                    <h3>World</h3>
+                    <h3>Story & Lore</h3>
+                    <h2>The World of Dragon Prince</h2>
                 </div>
             </Layout>
         )

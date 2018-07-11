@@ -143,6 +143,11 @@ var MyDocument = function (_Document) {
                             fileName: _jsxFileName,
                             lineNumber: 10
                         }
+                    }),
+                    _react2.default.createElement("meta", { name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no", __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 11
+                        }
                     })
                 ),
                 _react2.default.createElement(
@@ -150,19 +155,19 @@ var MyDocument = function (_Document) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 12
+                            lineNumber: 13
                         }
                     },
                     _react2.default.createElement(_document.Main, {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 13
+                            lineNumber: 14
                         }
                     }),
                     _react2.default.createElement(_document.NextScript, {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 14
+                            lineNumber: 15
                         }
                     })
                 )

@@ -11,21 +11,83 @@ const client = createClient({
 
 class Newsfeed extends Component {
 
+
     static async getInitialProps() {
-        // Get static About and Video content
-        // const overview = await client.getEntry();
+        // Get Newsfeed Articles
+        const pinned = await client.getEntries({
+            'fields.articleType': 'Standard Article',
+            'fields.isPinned': true,
+            'content_type': 'article',
+            order: 'sys.createdAt',
+            limit: 2
 
+        });
+        const articles = await client.getEntries({
+            'fields.articleType': 'Standard Article',
+            'content_type': 'article',
+            order: 'sys.createdAt'
+        });
+        console.log(articles);
         return {
-
+            pinned,
+            articles
         }
     }
 
-    render() {
+    renderPinned() {
+        console.log(this.props.pinned);
+        if (!this.props.pinned.items) {
+            return <div>Loading...</div>
+        }
+        return _.map(this.props.pinned.items, (article, index) => {
+            return (
+                <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
+                    <li className={`article-thumb article-${index}`}>
+                        <div className="article-image-container">
+                            {/* {article.fields.heroImage.fields.file.url ? 'exists' : 'doesnt'} */}
+                            {/* <img className="article-image" alt={article.fields.title} src={article.fields.heroImage.fields.file.url ? article.fields.heroImage.fields.file.url : null} /> */}
+                        </div>
+                        <div className="article-content">
+                            <h3>{article.fields.title}</h3>
+                            <p>{article.fields.summary}</p>
+                        </div>
+                    </li>
+                </Link>
+            )
+        });
+    }
 
+    renderArticles() {
+
+        if (!this.props.articles.items) {
+            return <div>No articles to show</div>
+        }
+        return _.map(this.props.articles.items, (article, index) => {
+            return (
+                <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
+                    <li className={`article-thumb article-${index}`}>
+                        <div className="article-image-container">
+                            {/* <img className="article-image" alt={article.fields.title} src={article.fields.heroImage.fields.file.url ? article.fields.heroImage.fields.file.url : null} /> */}
+                        </div>
+                        <div className="article-content">
+                            <h3>{article.fields.title}</h3>
+                            <p>{article.fields.summary}</p>
+                        </div>
+                    </li>
+                </Link>
+            )
+        });
+    }
+
+    render() {
         return (
             <Layout>
                 <div className="container">
                     <h3>Newsfeed</h3>
+                    {this.renderPinned()}
+                    <ul>
+                        {this.renderArticles()}
+                    </ul>
                 </div>
             </Layout>
         )

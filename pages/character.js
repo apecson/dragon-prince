@@ -32,7 +32,7 @@ class Character extends Component {
         }
         return (
             <Layout>
-                <div class="container">
+                <div className="container">
                     <h3>Characters</h3>
                     <h2>{character.fields.title}</h2>
                     <img className="character-hero" src={hero.fields.file.url} alt={character.fields.title} />
