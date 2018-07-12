@@ -7,6 +7,7 @@ module.exports.exportPathMap = function (defaultPathMap) {
         '/overview': { page: 'overview' },
         '/characters': { page: 'characters' },
         '/world': { page: 'world' },
-        '/fun-stuff': { page: 'fun-stuff' }
+        '/fun-stuff': { page: 'fun-stuff' },
+        '/article': { page: 'article' }
     }
 }

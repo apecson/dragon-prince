@@ -19,7 +19,7 @@ class Article extends Component {
         // const post = await client.getEntry('54mbiCtZ0k0WKaiW6AGGIW') // article
         // const post = await client.getEntry('5IjYjSna7eGmQ0sKMouAGa') // gallery
         // const post = await client.getEntry('2Y0bGanLnGYMKUocyMUA88') // video
-    
+
         return {
             post
         }
@@ -27,8 +27,7 @@ class Article extends Component {
 
     articleRouter = (post) => {
         let view;
-
-        switch(post.fields.articleType) {
+        switch (post.fields.articleType) {
             case 'Standard Article':
                 view = <StandardArticle post={post} />
                 break;
@@ -41,20 +40,18 @@ class Article extends Component {
             default:
                 view = <h3>Woops</h3>
         }
-
         return view;
     }
 
     render() {
         const { post } = this.props;
-        
-        console.log(post)
+        console.log(post);
         return (
             <Layout>
                 <div className="container article-container">
-                    <h6>News feed</h6>
+                    <h1 className="page-title">News Feed</h1>
                     {/* TODO: Set up router for diffirent article component */}
-                    { this.articleRouter(post) }
+                    {this.articleRouter(post)}
                 </div>
             </Layout>
         )
