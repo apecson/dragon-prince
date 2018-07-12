@@ -551,9 +551,7 @@ footer {
     }
 }
 
-
-// Articles
-
+// Articles Styles
 .article-container {
     padding: 20px 0;
     @media (max-width: 640px) {
@@ -597,7 +595,7 @@ a.more-newsfeed {
     line-height: 60px;
 }
 
-
+// Gallery Article Specific Styles
 .gallery-article-gallery {
     display: flex;
     flex-flow: row wrap;
@@ -622,6 +620,7 @@ a.more-newsfeed {
 	}
 }
 
+// Video Article Specific Styles
 .video-article-hero {
     height: 500px;
     width: 100%;

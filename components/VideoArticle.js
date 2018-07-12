@@ -22,15 +22,14 @@ class Video extends Component {
     }
 
     componentDidMount() {
-        this.getVideo();
+        this.getData();
     }
 
-    async getVideo() {
+    async getData() {
         const video = await client.getEntry(this.props.post.fields.videos["0"].sys.id); // video
-        // const video = {}
-       this.setState({
-           video
-       })
+        this.setState({
+            video
+        })
     }
 
 
@@ -40,7 +39,7 @@ class Video extends Component {
         console.log(post)
         return (
             <div>
-              <div className="standard-article-title">
+                <div className="standard-article-title">
                     <h1>{post.fields.title}</h1>
                     <SocialLinks/>
                 </div>

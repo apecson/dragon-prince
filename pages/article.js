@@ -13,33 +13,50 @@ const client = createClient({
 class Article extends Component {
     // TODO: Set up query and check what type of article it is to send them to correct Article body
     static async getInitialProps({ query }) {
-        // const post = await client.getEntry(query.eid);
-        const post = await client.getEntry('54mbiCtZ0k0WKaiW6AGGIW') // article
+        const post = await client.getEntry(query.eid);
+
+        // Using for dev forcing article type
+        // const post = await client.getEntry('54mbiCtZ0k0WKaiW6AGGIW') // article
         // const post = await client.getEntry('5IjYjSna7eGmQ0sKMouAGa') // gallery
         // const post = await client.getEntry('2Y0bGanLnGYMKUocyMUA88') // video
-        
-        const hero = await client.getAsset(post.fields.heroImage.sys.id);
-        const authors = await client.getEntry(post.fields.author[0].sys.id) // article
-        // const hero = null,
-            //   authors = null;
-
+    
         return {
-            post,
-            hero,
-            authors
+            post
         }
     }
 
-    render() {
-        const { post, hero, authors} = this.props;
+    articleRouter = (post) => {
+        let view;
         
+        switch(post.fields.articleType) {
+            case 'Standard Article':
+                view = <StandardArticle post={post} />
+                break;
+            case 'Gallery':
+                view = <GalleryArticle post={post} />
+                break;
+            case 'Single Video':
+                view = <VideoArticle post={post} />
+                break;
+            default:
+                view = <h3>Woops</h3>
+        }
+
+        return view;
+    }
+
+    render() {
+        const { post } = this.props;
+        
+        console.log(post)
         return (
             <Layout>
                 <div className="container article-container">
                     <h6>News feed</h6>
                     {/* TODO: Set up router for diffirent article component */}
-                    <StandardArticle post={post} hero={hero} authors={authors} />
-                    {/* <GalleryArticle post={post} hero={hero} authors={authors} /> */}
+                    { this.articleRouter(post) }
+                    {/* <StandardArticle post={post} /> */}
+                    {/* <GalleryArticle post={post} /> */}
                     {/* <VideoArticle post={post} /> */}
                 </div>
             </Layout>

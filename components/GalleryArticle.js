@@ -17,17 +17,28 @@ class Gallery extends Component {
         super()
         this.state = {
             images: null,
-            open: false
+            open: false,
+            hero: null
         }
     }
 
     componentDidMount() {
-        this.getPhotos();
+        this.getPhotoUrl();
+        this.getData();
+    }
+
+    async getData() {
+        if(this.props.post.fields.hasOwnProperty("heroImage")) {
+            const hero = await client.getAsset(this.props.post.fields.heroImage.sys.id)
+            this.setState({
+                hero
+            })
+        }
     }
     
-    getPhotos = () => {
+    getPhotoUrl = () => {
         const self = this;
-        let ids = this.props.post.fields.photos;
+        let ids = this.props.post.fields.photos || [];
 
         var promises = ids.map(photo => {
             return client.getAsset(photo.sys.id).then((res) => {
@@ -41,34 +52,40 @@ class Gallery extends Component {
             })
         })
     }
-    getDivs = () => {
+    getImg = () => {
         const { images } = this.state;
-        return images.map(image => <img key={image.sys.id} style={{backgroundImage: `url(${image.fields.file.url})`}} /> );
+
+        if (images.length > 0) {
+            return images.map(image => <img key={image.sys.id}  alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url})`}} /> );
+        } else {
+            return null
+        }
     }
 
     render() {
-        const { post, hero, authors} = this.props;
+        const { post } = this.props;
+        const { hero } = this.state;
 
+        console.log(this.props)
         return (
             <div>
-              <div className="standard-article-title">
-                    <h1>{post.fields.title}</h1>
+                <div className="standard-article-title">
+                    <h1>{post.fields.title ? post.fields.title : null}</h1>
                     <SocialLinks/>
                 </div>
                 <div className="standard-article-hero">
-                    {/* TODO: SET HERO on Gallery */}
-                    {/* <img src={hero.file.url} /> */}
+                    <img src={ hero ? hero.fields.file.url : null } />
                 </div>
                 <div className="article">
                     <p>{moment(post.sys.createdAt).format("MMMM Do YYYY")}</p>
                 </div>
 
                 <div className="character-body">
-                    {renderHTML(markdown.toHTML(post.fields.body))}
+                    {post.fields.body ? renderHTML(markdown.toHTML(post.fields.body)) : null}
                 </div>
 
                 <div className="gallery-article-gallery">
-                    {this.state.images !== null ? this.getDivs() : null}
+                    {this.state.images ? this.getImg() : null}
                 </div>
 
                 {/* <Lightbox key={image.sys.id} images={[{ src: image.fields.file.url }, { src: image.fields.file.url }]} isOpen={this.state.open} onClose={() => {this.setState({open: false})}} /> */}
