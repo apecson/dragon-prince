@@ -14,6 +14,8 @@ const client = createClient({
 
 class Overview extends Component {
 
+    title = 'Story Overview';
+
     static async getInitialProps() {
         // Get static About
         const about = await client.getEntry('2Y0bGanLnGYMKUocyMUA88'); // about
@@ -27,8 +29,8 @@ class Overview extends Component {
         return (
             <Layout>
                 <div className="container pt-4">
-                    <h3>Story & Lore</h3>
-                    <h2>Story Overview</h2>
+                    <h3 className="subtitle">Story & Lore</h3>
+                    <h1 className="page-title">{this.title}</h1>
                     <p>{renderHTML(markdown.toHTML(this.props.about.fields.body))}</p>
                     <div class="row">
                         <div class="col-sm-6">

@@ -12,8 +12,6 @@
     margin: 0;
     padding: 0;
   }
-
-
   .rc-menu-item-selected {
 
     transform: translateZ(0);
@@ -256,7 +254,9 @@ header {
     margin: 0 auto;
     max-width: 1200px;
 }
-
+.subtitle {
+    font-size: 18px;
+}
 footer {
     height: 122px;
     background: #262626;
@@ -288,7 +288,7 @@ footer {
 }
 .main-menu {
     display: flex;
-    margin: 0;
+    margin: 0 auto;
     height: 51px;
 }
 .main-menu li {
@@ -367,6 +367,20 @@ footer {
     margin: 0 auto;
     max-width: 1200px;
 }
+.hero-item {
+    max-width: 32%;
+    cursor: pointer;
+}
+.hero-row {
+    justify-content: space-between;
+}
+.hero-post {
+    padding: 0;
+    overflow: hidden;
+    &.large {
+        max-width: 66%;
+    }
+}
 .home__about {
     background: url('/static/bkgrndAbout.png') no-repeat scroll 0 0;
     background-size: cover;
@@ -377,15 +391,15 @@ footer {
 .home__about-inner {
     display: flex;
     margin: 0 auto;
-    max-width: 1200px;
+    justify-content: space-between;
 }
 .home__about-child {
     flex: 0 0 50%;
+    max-width: 48%;
 }
-
-.connect-inner {
-    max-width: 1200px;
-    margin: 0 auto;
+.about__button-list {
+    display: flex;
+    justify-content: space-around;
 }
 
 .post-thumb {
@@ -440,4 +454,8 @@ footer {
 
 .character-row {
     justify-content: space-around;
+}
+.page-title {
+    font-size: 36px;
+    font-weight: bold;
 }

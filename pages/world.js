@@ -11,6 +11,8 @@ const client = createClient({
 
 class World extends Component {
 
+    title = 'The World of Dragon Prince';
+
     static async getInitialProps() {
         // Get static About and Video content
         // const overview = await client.getEntry();
@@ -21,12 +23,11 @@ class World extends Component {
     }
 
     render() {
-
         return (
             <Layout>
-                <div className="container pt-4">
-                    <h3>Story & Lore</h3>
-                    <h2>The World of Dragon Prince</h2>
+                <div className="container pt-4 pb-4">
+                    <h3 className="subtitle">Story & Lore</h3>
+                    <h1 className="page-title">{this.title}</h1>
                 </div>
             </Layout>
         )

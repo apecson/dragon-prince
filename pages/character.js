@@ -33,8 +33,8 @@ class Character extends Component {
         return (
             <Layout>
                 <div className="container">
-                    <h3>Characters</h3>
-                    <h2>{character.fields.title}</h2>
+                    <h3 className="subtitle">Characters</h3>
+                    <h1 className="page-title">{character.fields.title}</h1>
                     <img className="character-hero" src={hero.fields.file.url} alt={character.fields.title} />
                     <div className="character-body">
                         {renderHTML(markdown.toHTML(character.fields.body))}

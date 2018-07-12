@@ -11,6 +11,8 @@ const client = createClient({
 
 class Characters extends Component {
 
+    title = 'Characters';
+
     static async getInitialProps() {
         // Get static About and Video content
         const characters = await client.getEntries({
@@ -28,7 +30,7 @@ class Characters extends Component {
             return (
                 <Link key={character.sys.id} href={`/character?eid=${character.sys.id}`}>
                     <div className={`col-4 text-white bg-dark card character-thumb character-${index}`} >
-                        <img className="card-img img-fluid character-image" alt={character.fields.title} src={character.fields.heroImage.fields.file.url} />
+                        <img className="card-img img-fluid character-image" height="190" alt={character.fields.title} src={`${character.fields.heroImage.fields.file.url}?h=190&w=340&fit=fill`} />
                         <div className="card-img-overlay character-content">
                             <h3>{character.fields.title}</h3>
                             <p>{character.fields.summary}</p>
@@ -46,11 +48,11 @@ class Characters extends Component {
         return (
             <Layout>
                 <div className="container pt-4 pb-4">
-                    <h3>Characters</h3>
+                    <h3 className="subtitle">Story & Lore</h3>
+                    <h1 className="page-title">{this.title}</h1>
                     <div className="row character-row">
                         {this.renderCharacters()}
                     </div>
-
                 </div>
             </Layout>
         )

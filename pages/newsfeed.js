@@ -13,6 +13,8 @@ const fallback = '//images.ctfassets.net/sykm2zb64bkw/3hRcpuODd6S8uGOicqKoGI/392
 
 class Newsfeed extends Component {
 
+    title = 'News Feed';
+
     static async getInitialProps() {
         // Get Newsfeed Articles
         const pinned = await client.getEntries({
@@ -41,10 +43,17 @@ class Newsfeed extends Component {
             return <div>Loading...</div>
         }
         return _.map(this.props.pinned.items, (article, index) => {
+            let imgUrl = '';
+            if (article.fields.heroImage) {
+                imgUrl = `${article.fields.heroImage.fields.file.url}?h=300&w=538&fit=fill`;
+            }
+            else {
+                imgUrl = fallback;
+            }
             return (
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
-                    <li className={`card bg-dark text-white article-thumb pinned article-${index}`}>
-                        <img className="card-img article-image" alt={article.fields.title} src={article.fields.heroImage ? article.fields.heroImage.fields.file.url : fallback} />
+                    <li className={`col-6 card text-white bg-transparent article-thumb pinned article-${index}`}>
+                        <img className="card-img article-image" height="300" alt={article.fields.title} src={imgUrl} />
                         <div className="card-img-overlay article-content">
                             <h3>{article.fields.title}</h3>
                             <p>{article.fields.summary}</p>
@@ -60,11 +69,18 @@ class Newsfeed extends Component {
             return <div>No articles to show</div>
         }
         return _.map(this.props.articles.items, (article, index) => {
+            let imgUrl = '';
+            if (article.fields.heroImage) {
+                imgUrl = `${article.fields.heroImage.fields.file.url}?h=190&w=340&fit=fill`;
+            }
+            else {
+                imgUrl = fallback;
+            }
             return (
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
                     <li className={`article-thumb media article-${index}`}>
                         <div className="media-left mr-4 mb-4 article-image-container">
-                            <img className="media-object article-image" alt={article.fields.title} width="360" height="200" src={article.fields.heroImage ? article.fields.heroImage.fields.file.url : fallback} />
+                            <img className="media-object article-image" alt={article.fields.title} width="360" height="200" src={imgUrl} />
                         </div>
                         <div className="media-body article-content">
                             <h3 className="media-heading">{article.fields.title}</h3>
@@ -81,8 +97,8 @@ class Newsfeed extends Component {
         return (
             <Layout>
                 <div className="container pt-4 pb-4">
-                    <h3>News Feed</h3>
-                    <ul className="list-unstyled">
+                    <h1 className="page-title">{this.title}</h1>
+                    <ul className="list-unstyled row mb-4">
                         {this.renderPinned()}
                     </ul>
                     <ul className="list-unstyled">

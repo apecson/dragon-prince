@@ -25,7 +25,7 @@ class Overview extends Component {
         return (
             <Layout>
                 <div className="container">
-                    <h3>Overview</h3>
+                    <h3 className="subtitle">Fun Stuff</h3>
                 </div>
             </Layout>
         )

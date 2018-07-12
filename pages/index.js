@@ -11,6 +11,8 @@ const client = createClient({
     accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
 });
 
+const fallback = '//images.ctfassets.net/sykm2zb64bkw/3hRcpuODd6S8uGOicqKoGI/39267d207cc393734d6a30ac0c890c93/moonshadowForm.png';
+
 class Index extends Component {
 
     static async getInitialProps() {
@@ -42,20 +44,20 @@ class Index extends Component {
 
         return (
             <div className="container">
-                <div className="row">
-                    <div className="col hero-post large">
+                <div className="row mb-4">
+                    <div className="col-8 hero-post large">
                         <div className="post-image">
-                            {/* <img src={items[0].fields ? items[0].fields.photos[0].fields.file.url : null} /> */}
+                            <img className="img-fluid" src={items.fields ? items[0].fields.photos[0].fields.file.url : fallback} />
                         </div>
                         <div className="post-content">
                             {items[0].fields.title}
                             {items[0].fields.summary}
                         </div>
                     </div>
-                    <div className="col ml-auto">
-                        <div className="row hero-post">
+                    <div className="col-4 hero-item ml-auto">
+                        <div className="row hero-post mb-4">
                             <div className="post-image">
-                                {/* <img src={items[1].fields.photos[0].fields.file.url} /> */}
+                                <img className="img-fluid" src={items.fields ? items[1].fields.photos[1].fields.file.url : fallback} />
                             </div>
                             <div className="post-content">
                                 {items[1].fields.title}
@@ -63,7 +65,7 @@ class Index extends Component {
                         </div>
                         <div className="row hero-post">
                             <div className="post-image">
-                                {/* <img src={items[2].fields.photos[0].fields.file.url} /> */}
+                                <img className="img-fluid" src={items.fields ? items[2].fields.photos[2].fields.file.url : fallback} />
                             </div>
                             <div className="post-content">
                                 {items[2].fields.title}
@@ -73,28 +75,28 @@ class Index extends Component {
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className="col hero-post">
+                <div className="row hero-row">
+                    <div className="col hero-item hero-post">
                         <div className="post-image">
-                            {/* <img src={items[0].fields.photos[0].fields.file.url} /> */}
+                            <img className="img-fluid" src={items.fields ? items[3].fields.photos[3].fields.file.url : fallback} />
                         </div>
                         <div className="post-content">
                             {items[3].fields.title}
 
                         </div>
                     </div>
-                    <div className="col hero-post">
+                    <div className="col hero-item hero-post">
                         <div className="post-image">
-                            {/* <img src={items[0].fields.photos[0].fields.file.url} /> */}
+                            <img className="img-fluid" src={items.fields ? items[4].fields.photos[4].fields.file.url : fallback} />
                         </div>
                         <div className="post-content">
                             {items[4].fields.title}
 
                         </div>
                     </div>
-                    <div className="col hero-post">
+                    <div className="col hero-item hero-post">
                         <div className="post-image">
-                            {/* <img src={items[0].fields.photos[0].fields.file.url} /> */}
+                            <img className="img-fluid" src={items.fields ? items[5].fields.photos[5].fields.file.url : fallback} />
                         </div>
                         <div className="post-content">
                             {items[5].fields.title}
@@ -123,7 +125,7 @@ class Index extends Component {
         const { about, video } = this.props;
         return (
             <section className="home__about">
-                <div className="home__about-inner">
+                <div className="home__about-inner container">
                     <div className="home__about-child home__about-left">
                         <iframe width="557" height="340"
                             src={video.fields.youTubeVideo} frameBorder="0">
@@ -132,15 +134,17 @@ class Index extends Component {
                     <div className="home__about-child home__about-right">
                         <h2>{about.fields.title}</h2>
                         <p>{about.fields.summary}</p>
-                        <Link href="explore">
-                            <button className="btn btn-primary">Explore The World</button>
-                        </Link>
-                        <Link href="characters">
-                            <button className="btn btn-primary">Meet The Characters</button>
-                        </Link>
-                        <Link href="/story-lore">
-                            <button className="btn btn-primary">Discover The Lore</button>
-                        </Link>
+                        <div className="about__button-list">
+                            <Link href="explore">
+                                <button type="button" className="btn btn-primary">Explore The World</button>
+                            </Link>
+                            <Link href="characters">
+                                <button type="button" className="btn btn-primary">Meet The Characters</button>
+                            </Link>
+                            <Link href="/story-lore">
+                                <button type="button" className="btn btn-primary">Discover The Lore</button>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -157,7 +161,7 @@ class Index extends Component {
             <div>
                 <Layout>
                     <CountBanner date={this.props.countdown.fields.targetDate} event={this.props.countdown.fields.body} />
-                    <div className="container mt-1 pb-4">
+                    <div className="container mt-4 pb-4">
                         <h2>The Latest</h2>
                         {this.renderPosts()}
                     </div>
