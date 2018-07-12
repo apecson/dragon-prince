@@ -18,7 +18,8 @@ class Index extends Component {
     static async getInitialProps() {
         const posts = await client.getEntries({
             content_type: 'article',
-            'fields.articleType[in]': 'Standard Article, Single Video, Gallery, Poll',
+            // 'fields.articleType[in]': 'Standard Article, Single Video, Gallery, Poll',
+            'fields.includeInFeed': 'true',
             limit: 6,
             order: 'sys.createdAt'
         });
@@ -47,9 +48,10 @@ class Index extends Component {
                 <div className="row mb-4">
                     <div className="col-8 hero-post large">
                         <div className="post-image">
-                            <img className="img-fluid" src={items.fields ? items[0].fields.photos[0].fields.file.url : fallback} />
+                            <img className="img-fluid" src={items[0].fields.heroImage ? items[0].fields.heroImage.fields.file.url + '?h=430&w=732&fit=fill' : fallback} />
                         </div>
                         <div className="post-content">
+                            <span class={`article-icon ${items[0].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                             {items[0].fields.title}
                             {items[0].fields.summary}
                         </div>
@@ -57,17 +59,19 @@ class Index extends Component {
                     <div className="col-4 hero-item ml-auto">
                         <div className="row hero-post mb-4">
                             <div className="post-image">
-                                <img className="img-fluid" src={items.fields ? items[1].fields.photos[1].fields.file.url : fallback} />
+                                <img className="img-fluid" src={items[1].fields.heroImage ? items[1].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
                             </div>
                             <div className="post-content">
+                                <span class={`article-icon ${items[1].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                                 {items[1].fields.title}
                             </div>
                         </div>
                         <div className="row hero-post">
                             <div className="post-image">
-                                <img className="img-fluid" src={items.fields ? items[2].fields.photos[2].fields.file.url : fallback} />
+                                <img className="img-fluid" src={items[2].fields.heroImage ? items[2].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
                             </div>
                             <div className="post-content">
+                                <span class={`article-icon ${items[2].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                                 {items[2].fields.title}
                             </div>
 
@@ -78,27 +82,30 @@ class Index extends Component {
                 <div className="row hero-row">
                     <div className="col hero-item hero-post">
                         <div className="post-image">
-                            <img className="img-fluid" src={items.fields ? items[3].fields.photos[3].fields.file.url : fallback} />
+                            <img className="img-fluid" src={items[3].fields.heroImage ? items[3].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
                         </div>
                         <div className="post-content">
+                            <span class={`article-icon ${items[3].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                             {items[3].fields.title}
 
                         </div>
                     </div>
                     <div className="col hero-item hero-post">
                         <div className="post-image">
-                            <img className="img-fluid" src={items.fields ? items[4].fields.photos[4].fields.file.url : fallback} />
+                            <img className="img-fluid" src={items[4].fields.heroImage ? items[4].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
                         </div>
                         <div className="post-content">
+                            <span class={`article-icon ${items[4].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                             {items[4].fields.title}
 
                         </div>
                     </div>
                     <div className="col hero-item hero-post">
                         <div className="post-image">
-                            <img className="img-fluid" src={items.fields ? items[5].fields.photos[5].fields.file.url : fallback} />
+                            <img className="img-fluid" src={items[5].fields.heroImage ? items[5].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
                         </div>
                         <div className="post-content">
+                            <span class={`article-icon ${items[5].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                             {items[5].fields.title}
 
                         </div>
@@ -162,7 +169,7 @@ class Index extends Component {
                 <Layout>
                     <CountBanner date={this.props.countdown.fields.targetDate} event={this.props.countdown.fields.body} />
                     <div className="container mt-4 pb-4">
-                        <h2>The Latest</h2>
+                        <h1 className="page-title">The Latest</h1>
                         {this.renderPosts()}
                     </div>
                     {this.renderAbout()}

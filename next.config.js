@@ -3,6 +3,10 @@ module.exports = withSass()
 module.exports.exportPathMap = function (defaultPathMap) {
     return {
         '/': { page: '/' },
-        '/newsfeed': { page: 'newsfeed' }
+        '/newsfeed': { page: 'newsfeed' },
+        '/overview': { page: 'overview' },
+        '/characters': { page: 'characters' },
+        '/world': { page: 'world' },
+        '/fun-stuff': { page: 'fun-stuff' }
     }
 }

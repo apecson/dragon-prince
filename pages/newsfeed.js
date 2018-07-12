@@ -54,7 +54,7 @@ class Newsfeed extends Component {
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
                     <li className={`col-6 card text-white bg-transparent article-thumb pinned article-${index}`}>
                         <img className="card-img article-image" height="300" alt={article.fields.title} src={imgUrl} />
-                        <div className="card-img-overlay article-content">
+                        <div className="card-img-overlay article-content--pinned article-content">
                             <h3>{article.fields.title}</h3>
                             <p>{article.fields.summary}</p>
                         </div>

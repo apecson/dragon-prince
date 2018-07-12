@@ -357,7 +357,21 @@ footer {
     text-align: center;
     font-size: 20px;
     padding: .5rem 1rem;
-}
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-image: url('/static/iconNetflix.png');
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        top: 0;
+        right: 0;
+    }
+ }
 
 .content {
     background: url('/static/bkgrndContent.png') no-repeat scroll 0 0;
@@ -379,6 +393,27 @@ footer {
     overflow: hidden;
     &.large {
         max-width: 66%;
+    }
+}
+.article-icon {
+    display: block;
+    height: 2em;
+    width: 2em;
+    position: absolute;
+    right: .75em;
+    bottom: .75em;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: 0 0;
+    background-size: contain;
+    &.standard-article {
+        background-image: url('/static/iconArticle.png');
+    }
+    &.single-video {
+        background-image: url('/static/iconVideo.png');
+    }
+    &.gallery {
+        background-image: url('/static/iconGallery.png');
     }
 }
 .home__about {
@@ -405,7 +440,7 @@ footer {
 .post-thumb {
     width: 367px;
     height: 203px;
-    background: black;
+    background: url('/static/opaque.png');
     margin: 5px;
     box-sizing: content-box;
     list-style-image: none;
@@ -415,7 +450,8 @@ footer {
     position: absolute;
     bottom: 0;
     padding: 1rem;
-    background: black;
+    padding-right: 3rem;
+    background: url('/static/opaque.png');
     width: 100%;
     left: 0;
     font-weight: bold;
@@ -448,6 +484,8 @@ footer {
     }
 }
 
+
+
 .article-image {
     border: 1px solid #FFFFFF;
 }
@@ -458,4 +496,32 @@ footer {
 .page-title {
     font-size: 36px;
     font-weight: bold;
+}
+
+.pinned {
+    max-width: 47%;
+    margin: 0 15px;
+    padding: 0;
+}
+.article-content--pinned {
+    background: url('/static/opaque.png');
+    top: auto;
+    margin: 2px;
+    padding: .5rem 1.25rem;
+}
+.world-thumb {
+    padding: 0;
+    max-width: 30%;
+    cursor: pointer;
+    border: 1px solid white;
+}
+.world-hero {
+    height: auto;
+    width: 100%;
+}
+.world-body {
+    img {
+        height: auto;
+        width: 100%;
+    }
 }

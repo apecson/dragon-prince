@@ -6,7 +6,7 @@ const linkStyle = {
 }
 
 const Header = () => (
-    <header>
+    <header className="">
         <div className="container">
             <ul className="social-links">
                 <li className="social-link-item"><Link href="/"><a style={linkStyle}>Twitter</a></Link></li>
