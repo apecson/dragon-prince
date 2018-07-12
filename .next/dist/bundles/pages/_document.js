@@ -67,12 +67,27 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./pages/_document.js":
+/***/ 0:
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
+/***/ }),
+
+/***/ 18:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(19);
+
+
+/***/ }),
+
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -81,15 +96,14 @@ module.exports =
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var _jsxFileName = "/Users/aaron/Sites/dragonprince/pages/_document.js";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__("react");
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _document = __webpack_require__("next/document");
+var _document = __webpack_require__(20);
 
 var _document2 = _interopRequireDefault(_document);
 
@@ -115,61 +129,20 @@ var MyDocument = function (_Document) {
         value: function render() {
             return _react2.default.createElement(
                 "html",
-                {
-                    __source: {
-                        fileName: _jsxFileName,
-                        lineNumber: 6
-                    }
-                },
+                null,
                 _react2.default.createElement(
                     _document.Head,
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 7
-                        }
-                    },
-                    _react2.default.createElement("link", { href: "https://fonts.googleapis.com/css?family=Roboto", rel: "stylesheet", __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 8
-                        }
-                    }),
-                    _react2.default.createElement("link", { rel: "stylesheet", href: "/static/bootstrap.min.css", __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 9
-                        }
-                    }),
-                    _react2.default.createElement("link", { rel: "stylesheet", href: "/_next/static/style.css", __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 10
-                        }
-                    }),
-                    _react2.default.createElement("meta", { name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no", __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 11
-                        }
-                    })
+                    null,
+                    _react2.default.createElement("link", { href: "https://fonts.googleapis.com/css?family=Roboto", rel: "stylesheet" }),
+                    _react2.default.createElement("link", { rel: "stylesheet", href: "/static/bootstrap.min.css" }),
+                    _react2.default.createElement("link", { rel: "stylesheet", href: "/_next/static/style.css" }),
+                    _react2.default.createElement("meta", { name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no" })
                 ),
                 _react2.default.createElement(
                     "body",
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 13
-                        }
-                    },
-                    _react2.default.createElement(_document.Main, {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 14
-                        }
-                    }),
-                    _react2.default.createElement(_document.NextScript, {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 15
-                        }
-                    })
+                    null,
+                    _react2.default.createElement(_document.Main, null),
+                    _react2.default.createElement(_document.NextScript, null)
                 )
             );
         }
@@ -182,27 +155,11 @@ exports.default = MyDocument;
 
 /***/ }),
 
-/***/ 0:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__("./pages/_document.js");
-
-
-/***/ }),
-
-/***/ "next/document":
+/***/ 20:
 /***/ (function(module, exports) {
 
 module.exports = require("next/document");
 
-/***/ }),
-
-/***/ "react":
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
 /***/ })
 
 /******/ });
-//# sourceMappingURL=_document.js.map

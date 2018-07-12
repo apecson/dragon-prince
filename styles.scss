@@ -262,11 +262,6 @@ footer {
     background: #262626;
 }
 
-.social-links {
-    float: left;
-    margin: 0;
-    padding: 0;
-}
 .main-logo {
     max-height: 255px;
     cursor: pointer;
@@ -524,4 +519,115 @@ footer {
         height: auto;
         width: 100%;
     }
+}
+
+// Social Links
+.social-links {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    line-height: 30px;
+    a {
+        display: block;
+        margin-left: 5px;
+        height: 32px;
+        width: 32px;
+        color: white;
+        border-radius: 3px;
+    }
+    .Tumblr {
+        background: #39475D;
+    }
+    .Twitter {
+        background: #1DA1F2;
+    }
+    .Facebook {
+        background: #4267B2;
+    }
+    .Instagram {
+        background: #D73375;
+    }
+}
+
+
+// Articles
+
+.article-container {
+    padding: 20px 0;
+    @media (max-width: 640px) {
+        padding: 20px;
+	}
+}
+.standard-article-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.standard-article-hero {
+    height: auto;
+    width: 100%;
+    img {
+        height: auto;
+        width: 100%;
+    }
+}
+.standard-article-credit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: .5rem 0;
+
+}
+.standard-article-author {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 1rem;
+}
+a.more-newsfeed {
+    display: block;
+    width: 65%;
+    height: 60px;
+    background: #3b3b3b;
+    border: none;
+    color: white;
+    margin: 40px auto;
+    text-align: center;
+    line-height: 60px;
+}
+
+
+.gallery-article-gallery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    img {
+        width: 45%;
+        min-width: 480px;
+        min-height: 330px;
+        height: auto;
+        background-size: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 10px;
+    }
+    @media (max-width: 640px) {
+        img {
+            width: 100%;
+            min-width: 0;
+            min-height: 330px;
+            height: auto;
+        }
+	}
+}
+
+.video-article-hero {
+    height: 500px;
+    width: 100%;
+    background: #000000;
+    margin-bottom: 10px;
+    @media (max-width: 640px) {
+        height: 280px;
+	}
 }
