@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { createClient } from 'contentful'
 import Layout from '../components/MyLayout';
-import StandardArticle from '../components/StandardArticle'
-import GalleryArticle from '../components/GalleryArticle'
-import VideoArticle from '../components/VideoArticle'
+import StandardArticle from '../components/articles/StandardArticle'
+import GalleryArticle from '../components/articles/GalleryArticle'
+import VideoArticle from '../components/articles/VideoArticle'
 
 const client = createClient({
     space: "sykm2zb64bkw",
@@ -27,7 +27,7 @@ class Article extends Component {
 
     articleRouter = (post) => {
         let view;
-        
+
         switch(post.fields.articleType) {
             case 'Standard Article':
                 view = <StandardArticle post={post} />
@@ -55,9 +55,6 @@ class Article extends Component {
                     <h6>News feed</h6>
                     {/* TODO: Set up router for diffirent article component */}
                     { this.articleRouter(post) }
-                    {/* <StandardArticle post={post} /> */}
-                    {/* <GalleryArticle post={post} /> */}
-                    {/* <VideoArticle post={post} /> */}
                 </div>
             </Layout>
         )

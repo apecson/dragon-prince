@@ -4,7 +4,7 @@ import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
 import Lightbox from 'react-images';
 import moment from 'moment';
-import SocialLinks from '../components/SocialLinks'
+import SocialLinks from '../ui/SocialLinks'
 import Link from 'next/link'
 
 const client = createClient({
@@ -56,7 +56,7 @@ class Gallery extends Component {
         const { images } = this.state;
 
         if (images.length > 0) {
-            return images.map(image => <img key={image.sys.id}  alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url})`}} /> );
+            return images.map(image => <figure key={image.sys.id}  alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url})`}} /> );
         } else {
             return null
         }

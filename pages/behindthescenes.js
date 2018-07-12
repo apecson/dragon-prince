@@ -1,19 +1,17 @@
 import React, { Component } from 'react'
 import { createClient } from 'contentful'
 import Layout from '../components/MyLayout';
-import _ from 'lodash';
 import Link from 'next/link';
+import _ from 'lodash';
+import moment from 'moment';
+import MeetTeam from '../components/ui/MeetTeam'
 
 const client = createClient({
     space: "sykm2zb64bkw",
     accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
 });
 
-const fallback = '//images.ctfassets.net/sykm2zb64bkw/3hRcpuODd6S8uGOicqKoGI/39267d207cc393734d6a30ac0c890c93/moonshadowForm.png';
-
-class Newsfeed extends Component {
-
-    title = 'News Feed';
+class BTS extends Component {
 
     static async getInitialProps() {
         // Get Newsfeed Articles
@@ -26,11 +24,11 @@ class Newsfeed extends Component {
         });
         
         const articles = await client.getEntries({
-            'fields.articleType[in]': 'Standard Article, Single Video, Gallery, Poll',
+            'fields.section': 'UpdatesAndVideos',
             'content_type': 'article',
             order: 'sys.createdAt'
         });
-        console.log(pinned);
+
         return {
             pinned,
             articles
@@ -38,7 +36,6 @@ class Newsfeed extends Component {
     }
 
     renderPinned() {
-        console.log(this.props.pinned);
         if (!this.props.pinned.items) {
             return <div>Loading...</div>
         }
@@ -48,7 +45,7 @@ class Newsfeed extends Component {
                 imgUrl = `${article.fields.heroImage.fields.file.url}?h=300&w=538&fit=fill`;
             }
             else {
-                imgUrl = fallback;
+                imgUrl = '//images.ctfassets.net/sykm2zb64bkw/3hRcpuODd6S8uGOicqKoGI/39267d207cc393734d6a30ac0c890c93/moonshadowForm.png';
             }
             return (
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
@@ -74,7 +71,7 @@ class Newsfeed extends Component {
                 imgUrl = `${article.fields.heroImage.fields.file.url}?h=190&w=340&fit=fill`;
             }
             else {
-                imgUrl = fallback;
+                imgUrl = '//images.ctfassets.net/sykm2zb64bkw/3hRcpuODd6S8uGOicqKoGI/39267d207cc393734d6a30ac0c890c93/moonshadowForm.png';
             }
             return (
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
@@ -84,7 +81,7 @@ class Newsfeed extends Component {
                         </div>
                         <div className="media-body article-content">
                             <h3 className="media-heading">{article.fields.title}</h3>
-                            {/* {article.sys.updatedAt} */}
+                            <span>{moment(article.sys.updatedAt).format("MMMM Do YYYY")}</span>
                             <p>{article.fields.summary}</p>
                         </div>
                     </li>
@@ -94,19 +91,26 @@ class Newsfeed extends Component {
     }
 
     render() {
+        const { pinned, articles } = this.props;
+        
+        console.log(articles)
         return (
             <Layout>
-                <div className="container pt-4 pb-4">
-                    <h1 className="page-title">{this.title}</h1>
-                    <ul className="list-unstyled row mb-4">
+                <div className="container article-container">
+                    <h6>Behind The Scenes</h6>
+                    <section className="row mb-4">
                         {this.renderPinned()}
-                    </ul>
-                    <ul className="list-unstyled">
+                    </section>
+                </div>
+                <MeetTeam />
+                <div className="container article-container">
+                    <hr/>
+                    <section>
                         {this.renderArticles()}
-                    </ul>
+                    </section>
                 </div>
             </Layout>
         )
     }
 }
-export default Newsfeed
+export default BTS

@@ -4,7 +4,7 @@ import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
 import Lightbox from 'react-images';
 import moment from 'moment';
-import SocialLinks from '../components/SocialLinks'
+import SocialLinks from '../ui/SocialLinks'
 import Link from 'next/link';
 
 

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Navigation from './Navigation';
-import SocialLinks from '../components/SocialLinks'
+import SocialLinks from '../components/ui/SocialLinks'
 
 
 const linkStyle = {

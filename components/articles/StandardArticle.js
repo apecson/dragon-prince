@@ -3,7 +3,7 @@ import { createClient } from 'contentful'
 import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
 import moment from 'moment';
-import SocialLinks from '../components/SocialLinks'
+import SocialLinks from '../ui/SocialLinks'
 import Link from 'next/link'
 
 const client = createClient({
@@ -22,6 +22,7 @@ class Standard extends Component {
 
     componentDidMount() {
         this.getData();
+        this.getPhotoUrl();
     }
 
     async getData() {
@@ -40,6 +41,33 @@ class Standard extends Component {
             })
         }
     }
+
+    getPhotoUrl = () => {
+        const self = this;
+        let ids = this.props.post.fields.photos || [];
+
+        var promises = ids.map(photo => {
+            return client.getAsset(photo.sys.id).then((res) => {
+                return res
+            })
+        })
+
+        Promise.all(promises).then((images) => {
+            self.setState({
+                images
+            })
+        })
+    }
+    getImg = () => {
+        const { images } = this.state;
+
+        if (images.length > 0) {
+            return images.map(image => <figure key={image.sys.id}  alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url})`}} /> );
+        } else {
+            return null
+        }
+    }
+
 
     render() {
         const { post } = this.props;
@@ -65,6 +93,10 @@ class Standard extends Component {
     
                 <div className="character-body">
                     { post.fields.body ? renderHTML(markdown.toHTML(post.fields.body)) : null }
+                </div>
+
+                <div className="gallery-article-gallery">
+                    {this.state.images ? this.getImg() : null}
                 </div>
 
                 <Link href="/newsfeed">

@@ -600,8 +600,8 @@ a.more-newsfeed {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    img {
-        width: 45%;
+    figure {
+        width: 47%;
         min-width: 480px;
         min-height: 330px;
         height: auto;
@@ -611,7 +611,7 @@ a.more-newsfeed {
         margin: 10px;
     }
     @media (max-width: 640px) {
-        img {
+        figure {
             width: 100%;
             min-width: 0;
             min-height: 330px;
@@ -629,4 +629,55 @@ a.more-newsfeed {
     @media (max-width: 640px) {
         height: 280px;
 	}
+}
+
+// Meet Team
+.section-meet {
+    background: #b2b2b2;
+    text-align: center;
+}
+.meet-wrapper {
+    display: flex;
+    flex-flow: row wrap; 
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    text-align: left;
+    img {
+        width: 280px;
+        height: 220px;
+        max-width: 23%;
+        background: black;
+        margin: 10px;
+    }
+    div {
+        width: 50%;
+    }
+    button {
+        text-align: center;
+        width: 45%;
+        margin: 0 10px;
+        height: 60px;
+        background: rgba(51, 51, 51, 1);
+        color: white;
+    }
+    @media (max-width: 1200px) {
+        img {
+            max-width: none;
+            width: 45%;
+        }
+        div {
+            width: 100%;
+        }
+    }
+    @media (max-width: 640px) {
+        img {
+            max-width: none;
+            width: 100%;
+            height: 250px;
+        }
+        div {
+            width: 100%;
+        }
+    }
 }
