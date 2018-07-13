@@ -4,6 +4,7 @@ import Layout from '../components/MyLayout';
 import StandardArticle from '../components/articles/StandardArticle'
 import GalleryArticle from '../components/articles/GalleryArticle'
 import VideoArticle from '../components/articles/VideoArticle'
+import DefaultArticle from '../components/articles/DefaultArticle'
 
 const client = createClient({
     space: "sykm2zb64bkw",
@@ -39,7 +40,8 @@ class Article extends Component {
                 view = <VideoArticle post={post} />
                 break;
             default:
-                view = <h3>Woops</h3>
+                view = <DefaultArticle post={post} />
+                break;
         }
 
         return view;
@@ -52,9 +54,8 @@ class Article extends Component {
         return (
             <Layout>
                 <div className="container article-container">
-                    <h6>News feed</h6>
-                    {/* TODO: Set up router for diffirent article component */}
-                    { this.articleRouter(post) }
+                    <h3 className="subtitle">News Feed</h3>
+                    {this.articleRouter(post)}
                 </div>
             </Layout>
         )

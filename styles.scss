@@ -250,6 +250,17 @@ header {
     background: url('/static/bkgrndHeader.png') no-repeat scroll 0 0;
     background-size: cover;
 }
+header .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+header .social-links {
+    position: absolute;
+    left: 0;
+    top: 20px;
+}
 .header-inner {
     margin: 0 auto;
     max-width: 1200px;
@@ -257,9 +268,20 @@ header {
 .subtitle {
     font-size: 18px;
 }
+header.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    .main-logo img {
+        max-height: 100px;
+    }
+}
 footer {
     height: 122px;
     background: #262626;
+    background: linear-gradient(to bottom, #262626, #333);
 }
 
 .main-logo {
@@ -555,7 +577,7 @@ footer {
 .article-container {
     padding: 20px 0;
     @media (max-width: 640px) {
-        padding: 20px;
+        // padding: 20px;
 	}
 }
 .standard-article-title {
@@ -601,8 +623,8 @@ a.more-newsfeed {
     flex-flow: row wrap;
     justify-content: center;
     figure {
-        width: 47%;
-        min-width: 480px;
+        width: 45%;
+        min-width: 450px;
         min-height: 330px;
         height: auto;
         background-size: auto;
@@ -629,6 +651,12 @@ a.more-newsfeed {
     @media (max-width: 640px) {
         height: 280px;
 	}
+}
+.bts-article {
+    margin: 20px 0;
+    img {
+        width: 100%;
+    }
 }
 
 // Meet Team
@@ -679,5 +707,11 @@ a.more-newsfeed {
         div {
             width: 100%;
         }
+    }
+}
+.creative-wrapper {
+    margin: 3rem 0 0;
+    .creative-member {
+        margin: 20px 0;
     }
 }

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const MeetTeam = (props) => (
     <section className="section-meet">
         <div className="container article-container">
@@ -14,8 +16,12 @@ const MeetTeam = (props) => (
                         nulla luctus pharetra vulputate, felis tellus mollis orci, 
                         sed rhoncus pronin sapien nunc accuan eget.
                     </p>
-                    <button>CREATIVE TEAM</button>
-                    <button>CAST</button>
+                    <Link href="/creative-team">
+                        <button>CREATIVE TEAM</button>
+                    </Link>
+                    <Link href="/cast">
+                        <button>CAST</button>
+                    </Link>
                 </div>
             </div>
         </div>

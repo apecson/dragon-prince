@@ -24,6 +24,7 @@
     "react-html-parser": "^2.0.2",
     "react-icons": "^2.2.7",
     "react-images": "^0.5.17",
-    "react-render-html": "^0.6.0"
+    "react-render-html": "^0.6.0",
+    "react-scroll": "^1.7.10"
   }
 }
