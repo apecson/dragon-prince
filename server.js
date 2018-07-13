@@ -5,6 +5,9 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
+var wwwhisper = require('connect-wwwhisper');
+
+app.use(wwwhisper());
 app.prepare()
     .then(() => {
         const server = express()
