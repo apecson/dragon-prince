@@ -10,6 +10,8 @@ const client = createClient({
     accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
 });
 
+const env = process.env.REACT_APP_SPACE;
+
 class Policy extends Component {
 
     static async getInitialProps() {
