@@ -447,16 +447,20 @@ footer {
     bottom: 0;
     padding: 1rem;
     padding-right: 3rem;
+    margin: 0 15px;
     background: url('/static/opaque.png');
-    width: 100%;
     left: 0;
     font-weight: bold;
+    top: auto;
 }
 
 .hero-post {
     height: 203px;
     // border: 1px solid white;
     position: relative;
+    background: transparent;
+    border: none;
+
     &.large {
         height: 430px;
     }
