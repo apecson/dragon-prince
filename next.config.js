@@ -1,3 +1,4 @@
+require('dotenv').config();
 const withSass = require('@zeit/next-sass')
 module.exports = withSass()
 module.exports.exportPathMap = function (defaultPathMap) {
@@ -7,6 +8,7 @@ module.exports.exportPathMap = function (defaultPathMap) {
         '/overview': { page: 'overview' },
         '/characters': { page: 'characters' },
         '/world': { page: 'world' },
-        '/fun-stuff': { page: 'fun-stuff' }
+        '/fun-stuff': { page: 'fun-stuff' },
+        '/article': { page: 'article' }
     }
 }

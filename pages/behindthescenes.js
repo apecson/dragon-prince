@@ -22,7 +22,7 @@ class BTS extends Component {
             order: 'sys.createdAt',
             limit: 2
         });
-        
+
         const articles = await client.getEntries({
             'fields.section': 'UpdatesAndVideos',
             'content_type': 'article',
@@ -92,19 +92,19 @@ class BTS extends Component {
 
     render() {
         const { pinned, articles } = this.props;
-        
+
         console.log(articles)
         return (
             <Layout>
                 <div className="container article-container">
-                    <h6>Behind The Scenes</h6>
+                    <h1 className="page-title">Behind The Scenes</h1>
                     <section className="row mb-4">
                         {this.renderPinned()}
                     </section>
                 </div>
                 <MeetTeam />
                 <div className="container article-container">
-                    <hr/>
+                    <hr />
                     <section>
                         {this.renderArticles()}
                     </section>

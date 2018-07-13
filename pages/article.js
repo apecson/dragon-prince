@@ -14,7 +14,7 @@ const client = createClient({
 class Article extends Component {
     static async getInitialProps({ query }) {
         const post = await client.getEntry(query.eid);
-    
+
         return {
             post
         }
@@ -22,8 +22,7 @@ class Article extends Component {
 
     articleRouter = (post) => {
         let view;
-
-        switch(post.fields.articleType) {
+        switch (post.fields.articleType) {
             case 'Standard Article':
                 view = <StandardArticle post={post} />
                 break;
@@ -37,18 +36,17 @@ class Article extends Component {
                 view = <DefaultArticle post={post} />
                 break;
         }
-
         return view;
     }
 
     render() {
         const { post } = this.props;
-        
-        console.log(post)
+        console.log(post);
         return (
             <Layout>
                 <div className="container article-container">
-                    <h3 className="subtitle">News Feed</h3>
+                    <h1 className="page-title">News Feed</h1>
+                    {/* TODO: Set up router for diffirent article component */}
                     {this.articleRouter(post)}
                 </div>
             </Layout>

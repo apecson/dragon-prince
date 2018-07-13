@@ -32,8 +32,8 @@ class Overview extends Component {
                     <h3 className="subtitle">Story & Lore</h3>
                     <h1 className="page-title">{this.title}</h1>
                     <p>{renderHTML(markdown.toHTML(this.props.about.fields.body))}</p>
-                    <div class="row">
-                        <div class="col-sm-6">
+                    <div className="row">
+                        <div className="col-sm-6">
                             <div className="card text-white bg-dark mb-3">
                                 <div className="card-body">
                                     <h5 className="card-title">Characters</h5>
@@ -41,7 +41,7 @@ class Overview extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div className="col-sm-6">
                             <div className="card text-white bg-dark mb-3">
                                 <div className="card-body">
                                     <h5 className="card-title">World</h5>

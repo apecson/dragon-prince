@@ -7,7 +7,7 @@ const Layout = (props) => (
     <div>
         {process.env.REACT_APP_SPACE}
         <Header />
-        <main className="content">
+        <main className="content view-height">
             {props.children}
         </main>
         <Footer />

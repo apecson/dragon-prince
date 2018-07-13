@@ -11,7 +11,7 @@ const client = createClient({
     accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
 });
 
-const fallback = '//images.ctfassets.net/sykm2zb64bkw/3hRcpuODd6S8uGOicqKoGI/39267d207cc393734d6a30ac0c890c93/moonshadowForm.png';
+const fallback = '/static/fallback.jpg';
 
 class Index extends Component {
 
@@ -44,72 +44,69 @@ class Index extends Component {
         }
 
         return (
-            <div className="container">
+            <div className="container px-0">
                 <div className="row mb-4">
-                    <div className="col-8 hero-post large">
-                        <div className="post-image">
-                            <img className="img-fluid" src={items[0].fields.heroImage ? items[0].fields.heroImage.fields.file.url + '?h=430&w=732&fit=fill' : fallback} />
-                        </div>
-                        <div className="post-content">
-                            <span class={`article-icon ${items[0].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
-                            {items[0].fields.title}
-                            {items[0].fields.summary}
-                        </div>
-                    </div>
-                    <div className="col-4 hero-item ml-auto">
-                        <div className="row hero-post mb-4">
-                            <div className="post-image">
-                                <img className="img-fluid" src={items[1].fields.heroImage ? items[1].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
-                            </div>
-                            <div className="post-content">
-                                <span class={`article-icon ${items[1].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
-                                {items[1].fields.title}
+                    <Link prefetch href={`article?eid=${items[0].sys.id}`}>
+                        <div className="card col-sm-8 col-8 hero-post large">
+                            <img className="card-img img-fluid" src={items[0].fields.heroImage ? items[0].fields.heroImage.fields.file.url + '?h=430&w=732&fit=fill' : fallback} />
+                            <div className="card-img-overlay post-content">
+                                <span className={`article-icon ${items[0].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
+                                {items[0].fields.title}
+                                {items[0].fields.summary}
                             </div>
                         </div>
-                        <div className="row hero-post">
-                            <div className="post-image">
-                                <img className="img-fluid" src={items[2].fields.heroImage ? items[2].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
-                            </div>
-                            <div className="post-content">
-                                <span class={`article-icon ${items[2].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
-                                {items[2].fields.title}
-                            </div>
+                    </Link>
 
-                        </div>
+                    <div className="col-sm-4 col-4 special-column hero-item ml-auto">
+                        <Link href={`article/?eid=${items[0].sys.id}`}>
+                            <div className="card stackable row hero-post mb-4">
+                                <img className="card-img img-fluid" src={items[1].fields.heroImage ? items[1].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                                <div className="card-img-overlay post-content">
+                                    <span className={`article-icon ${items[1].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
+                                    {items[1].fields.title}
+                                </div>
+                            </div>
+                        </Link>
+                        <Link href={`article/?eid=${items[0].sys.id}`}>
+                            <div className="card stackable row hero-post">
+                                <img className="card-img img-fluid" src={items[2].fields.heroImage ? items[2].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                                <div className="card-img-overlay post-content">
+                                    <span className={`article-icon ${items[2].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
+                                    {items[2].fields.title}
+                                </div>
+                            </div>
+                        </Link>
                     </div>
                 </div>
 
                 <div className="row hero-row">
-                    <div className="col hero-item hero-post">
-                        <div className="post-image">
-                            <img className="img-fluid" src={items[3].fields.heroImage ? items[3].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                    <Link href={`article/?eid=${items[0].sys.id}`}>
+                        <div className="col-sm  col-md-4  hero-item hero-post">
+                            <img className="card-img img-fluid" src={items[3].fields.heroImage ? items[3].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                            <div className="card-img-overlay post-content">
+                                <span className={`article-icon ${items[3].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
+                                {items[3].fields.title}
+                            </div>
                         </div>
-                        <div className="post-content">
-                            <span class={`article-icon ${items[3].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
-                            {items[3].fields.title}
-
+                    </Link>
+                    <Link href={`article/?eid=${items[0].sys.id}`}>
+                        <div className="col-sm col-md-4 hero-item hero-post">
+                            <img className="card-img img-fluid" src={items[4].fields.heroImage ? items[4].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                            <div className="card-img-overlay post-content">
+                                <span className={`article-icon ${items[4].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
+                                {items[4].fields.title}
+                            </div>
                         </div>
-                    </div>
-                    <div className="col hero-item hero-post">
-                        <div className="post-image">
-                            <img className="img-fluid" src={items[4].fields.heroImage ? items[4].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                    </Link>
+                    <Link href={`article/?eid=${items[0].sys.id}`}>
+                        <div className="col-sm-4 col-md-4  hero-item hero-post">
+                            <img className="card-img img-fluid" src={items[5].fields.heroImage ? items[5].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                            <div className="card-img-overlay post-content">
+                                <span className={`article-icon ${items[5].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
+                                {items[5].fields.title}
+                            </div>
                         </div>
-                        <div className="post-content">
-                            <span class={`article-icon ${items[4].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
-                            {items[4].fields.title}
-
-                        </div>
-                    </div>
-                    <div className="col hero-item hero-post">
-                        <div className="post-image">
-                            <img className="img-fluid" src={items[5].fields.heroImage ? items[5].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
-                        </div>
-                        <div className="post-content">
-                            <span class={`article-icon ${items[5].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
-                            {items[5].fields.title}
-
-                        </div>
-                    </div>
+                    </Link>
                 </div>
             </div>
         )

@@ -5,15 +5,14 @@ import React, { Component } from 'react'
 import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
 
-const client = createClient({
-    space: "sykm2zb64bkw",
-    accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
-});
-
 
 class Character extends Component {
 
     static async getInitialProps({ query }) {
+        let client = createClient({
+            space: process.env.REACT_APP_SPACE,
+            accessToken: process.env.REACT_APP_ACCESS_TOKEN
+        });
 
         const character = await client.getEntry(query.eid);
         const hero = await client.getAsset(character.fields.heroImage.sys.id)
@@ -25,8 +24,6 @@ class Character extends Component {
 
     render() {
         const { character, hero } = this.props;
-        //console.log(this.props.hero)
-        //console.log(character);
         if (!character) {
             return <div>Loading...</div>
         }
@@ -35,7 +32,7 @@ class Character extends Component {
                 <div className="container">
                     <h3 className="subtitle">Characters</h3>
                     <h1 className="page-title">{character.fields.title}</h1>
-                    <img className="character-hero" src={hero.fields.file.url} alt={character.fields.title} />
+                    <img className="character-hero" src={hero.fields.file ? hero.fields.file.url : ''} alt={character.fields.title} />
                     <div className="character-body">
                         {renderHTML(markdown.toHTML(character.fields.body))}
                     </div>

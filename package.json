@@ -5,15 +5,19 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
-    "export": "next build && next export"
+    "export": "next build && next export",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "dependencies": {
     "@babel/preset-env": "^7.0.0-beta.51",
     "@zeit/next-sass": "^0.2.0",
     "babel-cli": "^6.26.0",
+    "connect-wwwhisper": "*",
     "contentful": "^6.1.1",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
     "markdown": "^0.5.0",
     "next": "^5.1.0",
     "node-sass": "^4.9.1",
