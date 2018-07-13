@@ -44,7 +44,7 @@ class Index extends Component {
         }
 
         return (
-            <div className="container">
+            <div className="container px-0">
                 <div className="row mb-4">
                     <Link prefetch href={`article?eid=${items[0].sys.id}`}>
                         <div className="card col-sm-8 col-8 hero-post large">
@@ -57,9 +57,9 @@ class Index extends Component {
                         </div>
                     </Link>
 
-                    <div className="col-sm-4 col-4 hero-item ml-auto">
+                    <div className="col-sm-4 col-4 special-column hero-item ml-auto">
                         <Link href={`article/?eid=${items[0].sys.id}`}>
-                            <div className="card row hero-post mb-4">
+                            <div className="card stackable row hero-post mb-4">
                                 <img className="card-img img-fluid" src={items[1].fields.heroImage ? items[1].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
                                 <div className="card-img-overlay post-content">
                                     <span className={`article-icon ${items[1].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
@@ -68,7 +68,7 @@ class Index extends Component {
                             </div>
                         </Link>
                         <Link href={`article/?eid=${items[0].sys.id}`}>
-                            <div className="card row hero-post">
+                            <div className="card stackable row hero-post">
                                 <img className="card-img img-fluid" src={items[2].fields.heroImage ? items[2].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
                                 <div className="card-img-overlay post-content">
                                     <span className={`article-icon ${items[2].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>

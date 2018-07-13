@@ -393,6 +393,18 @@ footer {
     &.large {
         max-width: 66%;
     }
+    &.stackable {
+        margin: 0 auto;
+
+        & .post-content {
+            margin: 0;
+        }
+    }
+}
+.special-column {
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 0;
 }
 .article-icon {
     display: block;
@@ -447,7 +459,7 @@ footer {
 }
 .post-content {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     padding: 1rem;
     padding-right: 3rem;
     margin: 0 15px;
