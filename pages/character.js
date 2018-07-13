@@ -5,15 +5,14 @@ import React, { Component } from 'react'
 import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
 
-const client = createClient({
-    space: "sykm2zb64bkw",
-    accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
-});
-
 
 class Character extends Component {
 
     static async getInitialProps({ query }) {
+        let client = createClient({
+            space: process.env.REACT_APP_SPACE,
+            accessToken: process.env.REACT_APP_ACCESS_TOKEN
+        });
 
         const character = await client.getEntry(query.eid);
         const hero = await client.getAsset(character.fields.heroImage.sys.id)
