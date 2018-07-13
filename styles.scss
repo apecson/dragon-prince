@@ -535,14 +535,15 @@ footer {
     padding: .5rem 1.25rem;
 }
 .world-thumb {
-    padding: 0;
-    max-width: 30%;
+    background: transparent;
     cursor: pointer;
-    border: 1px solid white;
 }
 .world-hero {
     height: auto;
     width: 100%;
+}
+.world-content {
+    top: auto;
 }
 .world-body {
     img {

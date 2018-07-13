@@ -35,15 +35,15 @@ class World extends Component {
                 imgUrl = `${world.fields.heroImage.fields.file.url}?h=190&w=340&fit=fill`;
             }
             else {
-                imgUrl = fallback;
+                imgUrl = fallback + '?h=190&w=340&fit=fill';
             }
             return (
-                <Link key={world.sys.id} href={`/world?eid=${world.sys.id}`}>
-                    <div className={`col-4 mb-4 text-white bg-dark card world-thumb world-${index}`} >
+                <Link key={world.sys.id} href={`/article?eid=${world.sys.id}`}>
+                    <div className={`col-4 mb-4 text-white card world-thumb world-${index}`} >
                         <img className="card-img img-fluid world-image" height="190" alt={world.fields.title} src={imgUrl} />
                         <div className="card-img-overlay world-content">
                             <h3>{world.fields.title}</h3>
-                            <p>{world.fields.summary}</p>
+                            {/* <p>{world.fields.summary}</p> */}
                         </div>
                     </div>
 
