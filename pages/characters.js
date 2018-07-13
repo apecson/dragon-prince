@@ -8,7 +8,7 @@ const client = createClient({
     space: "sykm2zb64bkw",
     accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
 });
-const fallback = '//images.ctfassets.net/sykm2zb64bkw/3hRcpuODd6S8uGOicqKoGI/39267d207cc393734d6a30ac0c890c93/moonshadowForm.png';
+const fallback = '/static/fallback.jpg';
 
 class Characters extends Component {
 
@@ -30,18 +30,18 @@ class Characters extends Component {
         return _.map(this.props.characters.items, (character, index) => {
             let imgUrl = '';
             if (character.fields.heroImage && character.fields.heroImage.fields) {
-                imgUrl = `${character.fields.heroImage.fields.file.url}?h=190&w=340&fit=fill`;
+                imgUrl = `${character.fields.heroImage.fields.file.url}?h=252&w=340&fit=fill`;
             }
             else {
                 imgUrl = fallback + '?h=190&w=340&fit=fill';
             }
             return (
                 <Link key={character.sys.id} href={`/character?eid=${character.sys.id}`}>
-                    <div className={`col-4 mb-4 text-white bg-dark card character-thumb character-${index}`} >
+                    <div className={`col-4 mb-4 text-white card character-thumb character-${index}`} >
                         <img className="card-img img-fluid character-image" alt={character.fields.title} src={imgUrl} />
                         <div className="card-img-overlay character-content">
-                            <h3>{character.fields.title ? character.fields.title : ''}</h3>
-                            <p>{character.fields.summary ? character.fields.summary : ''}</p>
+                            <div className="character-name">{character.fields.title ? character.fields.title : ''}</div>
+                            {/* <p>{character.fields.summary ? character.fields.summary : ''}</p> */}
                         </div>
                     </div>
 

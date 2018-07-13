@@ -9,7 +9,7 @@ const client = createClient({
     accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
 });
 
-const fallback = '//images.ctfassets.net/sykm2zb64bkw/3hRcpuODd6S8uGOicqKoGI/39267d207cc393734d6a30ac0c890c93/moonshadowForm.png';
+const fallback = '/static/fallback.jpg';
 
 class Newsfeed extends Component {
 
@@ -24,7 +24,7 @@ class Newsfeed extends Component {
             order: 'sys.createdAt',
             limit: 2
         });
-        
+
         const articles = await client.getEntries({
             'fields.articleType[in]': 'Standard Article, Single Video, Gallery, Poll',
             'content_type': 'article',
@@ -52,11 +52,13 @@ class Newsfeed extends Component {
             }
             return (
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
-                    <li className={`col-6 card text-white bg-transparent article-thumb pinned article-${index}`}>
+                    <li className={`col-sm-12 col-md-6 mb-4 card text-white bg-transparent article-thumb pinned article-${index}`}>
                         <img className="card-img article-image" height="300" alt={article.fields.title} src={imgUrl} />
                         <div className="card-img-overlay article-content--pinned article-content">
+
                             <h3>{article.fields.title}</h3>
                             <p>{article.fields.summary}</p>
+
                         </div>
                     </li>
                 </Link>
@@ -98,10 +100,10 @@ class Newsfeed extends Component {
             <Layout>
                 <div className="container pt-4 pb-4">
                     <h1 className="page-title">{this.title}</h1>
-                    <ul className="list-unstyled row mb-4">
+                    <ul className="list-unstyled row mb-5">
                         {this.renderPinned()}
                     </ul>
-                    <ul className="list-unstyled">
+                    <ul className="list-unstyled article-feed-list">
                         {this.renderArticles()}
                     </ul>
                 </div>

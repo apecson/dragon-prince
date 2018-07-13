@@ -1,4 +1,5 @@
 import Countdown, { getTimeDifference } from 'react-countdown-now';
+import Link from 'next/link';
 
 // Random component
 const Completionist = () => <div className="countdown">Watch on Netflix today</div>;
@@ -11,7 +12,10 @@ const renderer = ({ event, days, hours, minutes, seconds, completed }) => {
         return <Completionist />;
     } else {
         // Render a countdown
-        return <div className="countdown">{event} {days} days, {hours} hours, {minutes} minutes, {seconds} seconds</div>;
+        return <div className="countdown">
+            {event} {days} days, {hours} hours, {minutes} minutes, {seconds} seconds
+            <a href="https://www.netflix.com"><span className="netflix-icon"></span></a>
+        </div>;
     }
 };
 
