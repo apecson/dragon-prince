@@ -12,14 +12,8 @@ const client = createClient({
 });
 
 class Article extends Component {
-    // TODO: Set up query and check what type of article it is to send them to correct Article body
     static async getInitialProps({ query }) {
         const post = await client.getEntry(query.eid);
-
-        // Using for dev forcing article type
-        // const post = await client.getEntry('54mbiCtZ0k0WKaiW6AGGIW') // article
-        // const post = await client.getEntry('5IjYjSna7eGmQ0sKMouAGa') // gallery
-        // const post = await client.getEntry('2Y0bGanLnGYMKUocyMUA88') // video
     
         return {
             post

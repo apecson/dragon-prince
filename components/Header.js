@@ -9,6 +9,14 @@ const linkStyle = {
 
 
 class Header extends Component {
+    constructor (props) {
+        super(props)
+        this.state = {
+            fixed: false
+        }
+    }
+    
+
     componentDidMount () {
         window.addEventListener('scroll', this.handleScroll);
     }
@@ -19,28 +27,26 @@ class Header extends Component {
 
     handleScroll = (event) => {
         let header = window.document.querySelector('header');
-        if (window.scrollY >= 200 && header.className !== 'fixed' ) {
-            header.className += "fixed";
-
-            console.log(header, window.scrollY)
+        if (window.scrollY >= 46 ) {
+            // header.className += "fixed";
+            this.setState({
+                fixed: true
+            })
         } 
-        if (window.scrollY < 200 ){
-            header.className = "";
+        if (window.scrollY <= 47 ){
+            // header.className = "";
+            this.setState({
+                fixed: false
+            })
         }
-        // let scrollTop = event.scrollTop,
-            // itemTranslate = Math.min(0, scrollTop/3 - 60);
-    
-        // this.setState({
-        //   transform: itemTranslate
-        // });
     }
 
     render() {
         return (
-            <header className="">
+            <header className={this.state.fixed ? 'fixed' : ''}>
                 <div className="container">
                     <SocialLinks />
-                    <div className="main-logo"><Link href="/"><img className="img-fluid mx-auto d-block" src="/static/logo.png" alt="The Dragon Prince" /></Link></div>
+                    <div className="main-logo"><Link href="/"><img className="img-fluid mx-auto d-block" src={this.state.fixed ? '/static/logoMini.png' : '/static/logo.png'} alt="The Dragon Prince" /></Link></div>
                 </div>
                 <Navigation />
             </header>
