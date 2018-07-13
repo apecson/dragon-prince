@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
     "export": "next build && next export",
-    "postinstall": "next build && next start"
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build"
   },
   "author": "",
   "dependencies": {
