@@ -25,8 +25,6 @@ class Character extends Component {
 
     render() {
         const { character, hero } = this.props;
-        //console.log(this.props.hero)
-        //console.log(character);
         if (!character) {
             return <div>Loading...</div>
         }
@@ -35,7 +33,7 @@ class Character extends Component {
                 <div className="container">
                     <h3 className="subtitle">Characters</h3>
                     <h1 className="page-title">{character.fields.title}</h1>
-                    <img className="character-hero" src={hero.fields.file.url} alt={character.fields.title} />
+                    <img className="character-hero" src={hero.fields.file ? hero.fields.file.url : ''} alt={character.fields.title} />
                     <div className="character-body">
                         {renderHTML(markdown.toHTML(character.fields.body))}
                     </div>
