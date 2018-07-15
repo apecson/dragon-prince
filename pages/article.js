@@ -45,8 +45,7 @@ class Article extends Component {
         return (
             <Layout>
                 <div className="container article-container">
-                    <h1 className="page-title">News Feed</h1>
-                    {/* TODO: Set up router for diffirent article component */}
+                    <h1 className="subtitle">News Feed</h1>
                     {this.articleRouter(post)}
                 </div>
             </Layout>
