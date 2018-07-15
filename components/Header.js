@@ -51,7 +51,7 @@ class Header extends Component {
 
     render() {
         return (
-            <header className={ this.state.fixed ? 'fixed' : '' }>
+            <header className={ this.state.fixed ? 'fixed' : null }>
                 <Menu>
                     <Link prefetch href="/">
                         <a className="bm-item" >Home</a>
@@ -60,7 +60,7 @@ class Header extends Component {
                         <a className="bm-item" >News Feed</a>
                     </Link>
                     {/* <Link prefetch href="/fun-stuff"><a className="menu-item" >Fun Stuff</a></Link> */}
-                    <Link prefetch href="/behindthescenes">
+                    <Link prefetch href="/behind-the-scenes">
                         <a className="bm-item" >Behind The Scenes</a>
                     </Link>
                     <Link prefetch href="/overview">

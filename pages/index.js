@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { createClient } from 'contentful'
-import _ from 'lodash';
 import Layout from '../components/MyLayout'
 import CountBanner from '../components/Countdown'
 import Link from 'next/link';
 import Connect from '../components/Connect';
-
+import Button from '../components/ui/Button'
 const client = createClient({
     space: "sykm2zb64bkw",
     accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
@@ -47,7 +46,7 @@ class Index extends Component {
             <div className="container px-0">
                 <div className="row mb-4">
                     <Link prefetch href={`article?eid=${items[0].sys.id}`}>
-                        <div className="card col-sm-8 col-8 hero-post large">
+                        <div className="card col-sm-8 col-12 hero-post large">
                             <img className="card-img img-fluid" src={items[0].fields.heroImage ? items[0].fields.heroImage.fields.file.url + '?h=430&w=732&fit=fill' : fallback} />
                             <div className="card-img-overlay post-content">
                                 <span className={`article-icon ${items[0].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
@@ -57,7 +56,7 @@ class Index extends Component {
                         </div>
                     </Link>
 
-                    <div className="col-sm-4 col-4 special-column hero-item ml-auto">
+                    <div className="col-sm-4 col-12 special-column hero-item ml-auto">
                         <Link href={`article/?eid=${items[0].sys.id}`}>
                             <div className="card stackable row hero-post mb-4">
                                 <img className="card-img img-fluid" src={items[1].fields.heroImage ? items[1].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
@@ -81,7 +80,7 @@ class Index extends Component {
 
                 <div className="row hero-row">
                     <Link href={`article/?eid=${items[0].sys.id}`}>
-                        <div className="col-sm  col-md-4  hero-item hero-post">
+                        <div className="col-sm  col-md-4 col-12 hero-item hero-post">
                             <img className="card-img img-fluid" src={items[3].fields.heroImage ? items[3].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
                             <div className="card-img-overlay post-content">
                                 <span className={`article-icon ${items[3].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
@@ -90,7 +89,7 @@ class Index extends Component {
                         </div>
                     </Link>
                     <Link href={`article/?eid=${items[0].sys.id}`}>
-                        <div className="col-sm col-md-4 hero-item hero-post">
+                        <div className="col-sm col-md-4 col-12 hero-item hero-post">
                             <img className="card-img img-fluid" src={items[4].fields.heroImage ? items[4].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
                             <div className="card-img-overlay post-content">
                                 <span className={`article-icon ${items[4].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
@@ -99,7 +98,7 @@ class Index extends Component {
                         </div>
                     </Link>
                     <Link href={`article/?eid=${items[0].sys.id}`}>
-                        <div className="col-sm-4 col-md-4  hero-item hero-post">
+                        <div className="col-sm-4 col-md-4 col-12 hero-item hero-post">
                             <img className="card-img img-fluid" src={items[5].fields.heroImage ? items[5].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
                             <div className="card-img-overlay post-content">
                                 <span className={`article-icon ${items[5].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
@@ -129,25 +128,31 @@ class Index extends Component {
         const { about, video } = this.props;
         return (
             <section className="home__about">
-                <div className="home__about-inner container">
-                    <div className="home__about-child home__about-left">
-                        <iframe width="557" height="340"
-                            src={video.fields.youTubeVideo} frameBorder="0">
-                        </iframe>
-                    </div>
-                    <div className="home__about-child home__about-right">
-                        <h2>{about.fields.title}</h2>
-                        <p>{about.fields.summary}</p>
-                        <div className="about__button-list">
-                            <Link href="explore">
-                                <button type="button" className="btn btn-primary">Explore The World</button>
-                            </Link>
-                            <Link href="characters">
-                                <button type="button" className="btn btn-primary">Meet The Characters</button>
-                            </Link>
-                            <Link href="/story-lore">
-                                <button type="button" className="btn btn-primary">Discover The Lore</button>
-                            </Link>
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-12 col-md-6">
+                            <iframe width="100%" height="340"
+                                src={video.fields.youTubeVideo} frameBorder="0">
+                            </iframe>
+                        </div>
+                        <div className="col-12 col-md-6">
+                            <h2>{about.fields.title}</h2>
+                            <p>LONG AGO... Xadia was one land, rich in magic and wonder.</p>
+                            <p>But a thousand years ago, humans (who are born without innate magical powers) discovered that by harvesting magical creatures, they could use Dark Magic.</p>
+                            <p>Horrified by what they saw, the dragons and elves drove all the humans out of Xadia and into the west. And so the continent was divided in two. For centuries, the human kingdoms and Xadia were divided. The king of the dragons, Thunder, defended the border.</p>
+                            <p>But a few months ago, a human wizard tricked and killed Thunder, leaving the border unguarded.</p>
+                            <p>Now, the world stands on the brink of all-out war...</p>
+                            <div className="about__button-list">
+                                <Link href="explore">
+                                    <Button text="Explore The World" size="large" />
+                                </Link>
+                                <Link href="characters">
+                                    <Button text="Meet The Characters" size="large" />
+                                </Link>
+                                <Link href="/story-lore">
+                                    <Button text="Discover The Lore" size="large" />
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,6 +165,8 @@ class Index extends Component {
         if (!posts) {
             return <div>Loading...</div>
         }
+
+        console.log(process.env.REACT_APP_SPACE)
 
         return (
             <div>
