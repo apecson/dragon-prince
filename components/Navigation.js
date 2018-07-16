@@ -25,7 +25,7 @@ const Navigation = () => {
                     <MenuItem key="1-3"><Link prefetch href="/world"><a>World</a></Link></MenuItem>
                 </SubMenu>
                 {/* <MenuItem><Link prefetch href="/fun-stuff"><a>Fun Stuff</a></Link></MenuItem> */}
-                <MenuItem><Link prefetch href="/behindthescenes"><a>Behind The Scenes</a></Link></MenuItem>
+                <MenuItem><Link prefetch href="/behind-the-scenes"><a>Behind The Scenes</a></Link></MenuItem>
             </Menu>
         </div >
     )

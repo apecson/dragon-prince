@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { createClient } from 'contentful'
 import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
+import Lightbox from 'react-images';
 import moment from 'moment';
 import SocialLinks from '../ui/SocialLinks'
 import Link from 'next/link'
@@ -11,37 +12,30 @@ const client = createClient({
     accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
 });
 
-class Standard extends Component {
+class DefaultArticle extends Component {
     constructor () {
         super()
         this.state = {
-            hero: null,
-            author: null
+            images: null,
+            open: false,
+            hero: null
         }
     }
 
     componentDidMount() {
-        this.getData();
         this.getPhotoUrl();
+        this.getData();
     }
 
     async getData() {
-        // TODO: This can be cleaned up
         if(this.props.post.fields.hasOwnProperty("heroImage")) {
             const hero = await client.getAsset(this.props.post.fields.heroImage.sys.id)
             this.setState({
                 hero
             })
         }
-
-        if(this.props.post.fields.hasOwnProperty("author")) {
-            const author = await client.getEntry(this.props.post.fields.author[0].sys.id) // author
-            this.setState({
-                author
-            })
-        }
     }
-
+    
     getPhotoUrl = () => {
         const self = this;
         let ids = this.props.post.fields.photos || [];
@@ -62,17 +56,18 @@ class Standard extends Component {
         const { images } = this.state;
 
         if (images.length > 0) {
-            return images.map(image => <figure key={image.sys.id}  alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url}?h=320&w=480&fit=fill)`}} /> );
+            return images.map(image => <figure key={image.sys.id}  alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url})`}} /> );
         } else {
             return null
         }
     }
 
-
     render() {
         const { post } = this.props;
-        const { hero, author } = this.state;
-        
+        const { hero } = this.state;
+
+        console.log(post)
+        // console.log(this.props)
         return (
             <div>
                 <div className="standard-article-title">
@@ -80,19 +75,14 @@ class Standard extends Component {
                     <SocialLinks/>
                 </div>
                 <div className="standard-article-hero">
-                    <img src={ hero ? `${hero.fields.file.url}?h=540&w=980&fit=fill` : null } />
+                    <img src={ hero ? hero.fields.file.url : null } />
                 </div>
-                <div className="standard-article-credit">
-                    <span>{post.fields.heroImageCaption ? post.fields.heroImageCaption : null }</span>
-                    <span>{post.fields.heroImageCredit ? post.fields.heroImageCredit : null}</span>
+                <div className="article">
+                    <p>{moment(post.sys.createdAt).format("MMMM Do YYYY")}</p>
                 </div>
-                <div className="standard-article-author">
-                    <span>{ author ? author.fields.title : null }</span>
-                    <span>{moment(post.sys.createdAt).format("MMMM Do YYYY")}</span>
-                </div>
-    
+
                 <div className="character-body">
-                    { post.fields.body ? renderHTML(markdown.toHTML(post.fields.body)) : null }
+                    {post.fields.body ? renderHTML(markdown.toHTML(post.fields.body)) : null}
                 </div>
 
                 <div className="gallery-article-gallery">
@@ -106,4 +96,4 @@ class Standard extends Component {
         )
     }
 }
-export default Standard
+export default DefaultArticle

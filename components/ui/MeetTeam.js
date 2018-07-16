@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import Button from './Button'
+
 const MeetTeam = (props) => (
     <section className="section-meet">
         <div className="container article-container">
@@ -14,8 +17,12 @@ const MeetTeam = (props) => (
                         nulla luctus pharetra vulputate, felis tellus mollis orci, 
                         sed rhoncus pronin sapien nunc accuan eget.
                     </p>
-                    <button>CREATIVE TEAM</button>
-                    <button>CAST</button>
+                    <Link href="/creative-team">
+                        <Button text="Creative Team" size="large" />
+                    </Link>
+                    <Link href="/cast">
+                        <Button text="Cast" size="large" />
+                    </Link>
                 </div>
             </div>
         </div>

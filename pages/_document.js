@@ -1,6 +1,13 @@
 import Document, { Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
+  static getInitialProps ({ renderPage }) {
+    const sheet = new ServerStyleSheet()
+    const page = renderPage(App => props => sheet.collectStyles(<App {...props} />))
+    const styleTags = sheet.getStyleElement()
+    return { ...page, styleTags }
+  }
     render() {
         return (
             <html>
@@ -13,6 +20,7 @@ export default class MyDocument extends Document {
                     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
                     <link rel="stylesheet" href="/_next/static/style.css" />
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+                    {this.props.styleTags}
                 </Head>
                 <body>
                     <Main />

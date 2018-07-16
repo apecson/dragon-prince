@@ -4,6 +4,7 @@ import Layout from '../components/MyLayout';
 import StandardArticle from '../components/articles/StandardArticle'
 import GalleryArticle from '../components/articles/GalleryArticle'
 import VideoArticle from '../components/articles/VideoArticle'
+import DefaultArticle from '../components/articles/DefaultArticle'
 
 const client = createClient({
     space: "sykm2zb64bkw",
@@ -11,14 +12,8 @@ const client = createClient({
 });
 
 class Article extends Component {
-    // TODO: Set up query and check what type of article it is to send them to correct Article body
     static async getInitialProps({ query }) {
         const post = await client.getEntry(query.eid);
-
-        // Using for dev forcing article type
-        // const post = await client.getEntry('54mbiCtZ0k0WKaiW6AGGIW') // article
-        // const post = await client.getEntry('5IjYjSna7eGmQ0sKMouAGa') // gallery
-        // const post = await client.getEntry('2Y0bGanLnGYMKUocyMUA88') // video
 
         return {
             post
@@ -38,7 +33,8 @@ class Article extends Component {
                 view = <VideoArticle post={post} />
                 break;
             default:
-                view = <h3>Woops</h3>
+                view = <DefaultArticle post={post} />
+                break;
         }
         return view;
     }
@@ -49,8 +45,7 @@ class Article extends Component {
         return (
             <Layout>
                 <div className="container article-container">
-                    <h1 className="page-title">News Feed</h1>
-                    {/* TODO: Set up router for diffirent article component */}
+                    <h1 className="subtitle">News Feed</h1>
                     {this.articleRouter(post)}
                 </div>
             </Layout>

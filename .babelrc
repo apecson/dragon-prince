@@ -1,6 +1,6 @@
 {
-    "presets": [
-      "env",
-      "next/babel"
-    ]
-  }
+  "presets": [
+    "env",
+    "next/babel"
+  ]
+}
