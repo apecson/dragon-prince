@@ -44,7 +44,7 @@ class Index extends Component {
 
         return (
             <div className="container px-0">
-                <div className="row mb-4">
+                <div className="row grid-wrapper">
                     <Link prefetch href={`article?eid=${items[0].sys.id}`}>
                         <div className="card col-sm-8 col-12 hero-post large">
                             <img className="card-img img-fluid" src={items[0].fields.heroImage ? items[0].fields.heroImage.fields.file.url + '?h=430&w=732&fit=fill' : fallback} />
