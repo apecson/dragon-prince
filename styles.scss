@@ -537,30 +537,16 @@ footer {
     max-width: 1200px;
 }
 .hero-item {
-    // max-width: 32%;
     cursor: pointer;
-}
-.hero-row {
-    // justify-content: space-between;
-}
-.hero-post {
-    // padding: 0;
-    overflow: hidden;
-    &.large {
-        max-width: 66%;
-    }
-    &.stackable {
-        margin: 0 auto;
-
-        & .post-content {
-            margin: 0;
-        }
-    }
 }
 .special-column {
     max-width: 340px;
     margin: 0 auto;
     padding: 0;
+    @media (max-width: 748px) {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
 }
 .article-icon {
     display: block;
@@ -589,6 +575,9 @@ footer {
     height: auto;
     padding: 2.5rem;
     color: #000000;
+    @media (max-width: 748px) {
+        padding: 1.5rem 0;
+    }
 }
 .home__about-inner {
     display: flex;
@@ -624,7 +613,20 @@ footer {
     font-weight: bold;
     top: auto;
 }
+.hero-post {
+    // padding: 0;
+    overflow: hidden;
+    &.large {
+        max-width: 66%;
+    }
+    &.stackable {
+        margin: 0 auto;
 
+        & .post-content {
+            margin: 0;
+        }
+    }
+}
 .hero-post {
     height: 203px;
     // border: 1px solid white;
@@ -635,8 +637,31 @@ footer {
     &.large {
         height: 430px;
     }
+    @media (max-width: 748px) {
+        height: auto;
+        width: 100%;
+        margin-bottom: 1rem!important;
+        &.large {
+            height: 275px;
+            width: 100%;
+            max-width: 100%;
+        }
+        .post-content {
+            bottom: 0;
+        }
+    }
 }
-
+.grid-wrapper {
+    margin-bottom: 2rem;
+    @media (max-width: 748px) {
+        margin-bottom: 0;
+    }
+}
+.row.hero-row .hero-post:last-child {
+    @media (max-width: 748px) {
+        margin-bottom: 0!important;
+    }
+}
 .character-thumb {
     border: none;
     background-color: transparent;
@@ -840,6 +865,7 @@ a.more-newsfeed {
     background-size: cover;
     text-align: center;
     color: black;
+    padding: 0 1rem;
 }
 .meet-wrapper {
     display: flex;
@@ -860,7 +886,7 @@ a.more-newsfeed {
     }
     button {
         display: inline-block;
-        width: 47.9%;
+        width: 45%;
     }
     @media (max-width: 1200px) {
         img {
@@ -876,6 +902,7 @@ a.more-newsfeed {
             max-width: none;
             width: 100%;
             height: 250px;
+            margin: 10px 0;
         }
         div {
             width: 100%;
@@ -924,4 +951,27 @@ a.more-newsfeed {
     width: 300px;
     right: 0;
     bottom: -5em;
+    @media (max-width: 748px) {
+        position: relative;
+        width: 300px;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%,0);
+    }
+}
+.connect-inner {
+    .list-unstyled {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        align-items: center;
+        li {
+            margin: 10px;
+        }
+    }
+    @media (max-width: 748px) {
+        .list-unstyled {
+            justify-content: center;
+        }
+    }
 }
