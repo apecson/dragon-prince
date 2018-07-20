@@ -28,7 +28,6 @@ class World extends Component {
     }
 
     renderWorld() {
-        console.log(this.props.worlds)
         return _.map(this.props.worlds.items, (world, index) => {
             let imgUrl = '';
             if (world.fields.heroImage) {
@@ -39,10 +38,10 @@ class World extends Component {
             }
             return (
                 <Link key={world.sys.id} href={`/article?eid=${world.sys.id}`}>
-                    <div className={`col-4 mb-4 text-white card world-thumb world-${index}`} >
+                    <div className={`col-12 col-md-4 mb-4 text-white card world-thumb world-${index}`} >
                         <img className="card-img img-fluid world-image" height="190" alt={world.fields.title} src={imgUrl} />
                         <div className="card-img-overlay world-content">
-                            <h3>{world.fields.title}</h3>
+                            <h4>{world.fields.title}</h4>
                             {/* <p>{world.fields.summary}</p> */}
                         </div>
                     </div>

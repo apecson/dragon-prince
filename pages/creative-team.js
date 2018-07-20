@@ -12,7 +12,7 @@ class CreativeTeam extends Component {
                     <section className="creative-wrapper">
                         <article className="row creative-member">
                             <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                                <img className="creative-image image-fluid" alt="AARON  EHASZ" src="/static/creative/aaron.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">AARON EHASZ</h3>
@@ -23,7 +23,7 @@ class CreativeTeam extends Component {
                         
                         <article className="row creative-member">
                             <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                                <img className="creative-image" alt="JUSTIN RICHMOND" src="/static/creative/justin.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">JUSTIN RICHMOND</h3>
@@ -34,7 +34,7 @@ class CreativeTeam extends Component {
 
                         <article className="row creative-member">
                             <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                                <img className="creative-image" alt="GIANCARLO VOLPE" src="/static/creative/giancarlo.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">GIANCARLO VOLPE</h3>
@@ -45,7 +45,7 @@ class CreativeTeam extends Component {
                         
                         <article className="row creative-member">
                             <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                                <img className="creative-image" alt="EDISON YAN" src="/static/creative/edison.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">EDISON YAN</h3>

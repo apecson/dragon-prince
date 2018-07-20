@@ -80,16 +80,16 @@ class Newsfeed extends Component {
             }
             return (
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
-                    <li className={`article-thumb media article-${index}`}>
-                        <div className="media-left mr-4 mb-4 article-image-container">
+                    <article className="row bts-article">
+                        <div className="col-12 col-md-4 mb-2">
                             <img className="media-object article-image" alt={article.fields.title} width="360" height="200" src={imgUrl} />
                         </div>
-                        <div className="media-body article-content">
+                        <div className="col-12 col-md-8">
                             <h3 className="media-heading">{article.fields.title}</h3>
                             {/* {article.sys.updatedAt} */}
                             <p>{article.fields.summary}</p>
                         </div>
-                    </li>
+                    </article>
                 </Link>
             )
         });

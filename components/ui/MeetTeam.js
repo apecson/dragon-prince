@@ -1,4 +1,4 @@
-import Link from 'next/link';
+
 import Button from './Button'
 
 const MeetTeam = (props) => (
@@ -17,12 +17,12 @@ const MeetTeam = (props) => (
                         nulla luctus pharetra vulputate, felis tellus mollis orci, 
                         sed rhoncus pronin sapien nunc accuan eget.
                     </p>
-                    <Link href="/creative-team">
+                    <a href="/creative-team">
                         <Button text="Creative Team" size="large" />
-                    </Link>
-                    <Link href="/cast">
+                    </a>
+                    <a href="/cast">
                         <Button text="Cast" size="large" />
-                    </Link>
+                    </a>
                 </div>
             </div>
         </div>
