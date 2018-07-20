@@ -5,25 +5,42 @@ import React, { Component } from 'react'
 import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
 
+let client = createClient({
+    space: "sykm2zb64bkw",
+    accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
+});
 
 class Character extends Component {
-
-    static async getInitialProps({ query }) {
-        let client = createClient({
-            space: "sykm2zb64bkw",
-            accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
-        });
-
-        const character = await client.getEntry(query.eid);
-        const hero = await client.getAsset(character.fields.heroImage.sys.id)
-        return {
-            character,
-            hero
+    constructor () {
+        super()
+        this.state = {
+            hero: null
         }
     }
 
+    static async getInitialProps({ query }) {
+        const character = await client.getEntry(query.eid);
+
+        return {
+            character
+        }
+    }
+
+    componentDidMount() {
+        this.getData();
+    }
+    
+    async getData() {
+        const hero = await client.getAsset(this.props.character.fields.heroImage.sys.id);
+
+        this.setState({
+            hero
+        })
+    }
+
     render() {
-        const { character, hero } = this.props;
+        const { character } = this.props,
+              { hero } = this.state;
         if (!character) {
             return <div>Loading...</div>
         }
@@ -32,7 +49,7 @@ class Character extends Component {
                 <div className="container">
                     <h3 className="subtitle">Characters</h3>
                     <h1 className="page-title">{character.fields.title}</h1>
-                    <img className="character-hero" src={hero.fields.file ? hero.fields.file.url : ''} alt={character.fields.title} />
+                    <img className="character-hero" src={hero ? hero.fields.file.url : ''} alt={character.fields.title} />
                     <div className="character-body">
                         {renderHTML(markdown.toHTML(character.fields.body))}
                     </div>

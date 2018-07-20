@@ -11,8 +11,8 @@ class CreativeTeam extends Component {
                     <h1 className="page-title">Cast</h1>
                     <section className="creative-wrapper">
                         <article className="row creative-member">
-                            <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                            <div className="col-12 col-md-3 pb-2">
+                                <img className="creative-image img-fluid" alt="JACK DE SENA" src="/static/cast/jack1.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">JACK DE SENA (CALLUM)</h3>
@@ -21,8 +21,8 @@ class CreativeTeam extends Component {
                         </article>
                         
                         <article className="row creative-member">
-                            <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                            <div className="col-12 col-md-3 pb-2">
+                                <img className="creative-image img-fluid" alt="PAULA BURROWS" src="/static/cast/paula1.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">PAULA BURROWS (RAYLA)</h3>
@@ -31,8 +31,8 @@ class CreativeTeam extends Component {
                         </article>
 
                         <article className="row creative-member">
-                            <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                            <div className="col-12 col-md-3 pb-2">
+                                <img className="creative-image img-fluid" alt="SASHA ZOEY" src="/static/cast/sasha1.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">SASHA ZOEY ROJEN (EZRAN)</h3>
@@ -41,8 +41,8 @@ class CreativeTeam extends Component {
                         </article>
                         
                         <article className="row creative-member">
-                            <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                            <div className="col-12 col-md-3 pb-2">
+                                <img className="creative-image img-fluid" alt="LUC RODERIQUE" src="/static/cast/luc1.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">LUC RODERIQUE (HARROW)</h3>
@@ -51,8 +51,8 @@ class CreativeTeam extends Component {
                         </article>
 
                         <article className="row creative-member">
-                            <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                            <div className="col-12 col-md-3 pb-2">
+                                <img className="creative-image img-fluid" alt="JASON SIMPSON" src="/static/cast/jason.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">JASON SIMPSON (VIREN)</h3>
@@ -61,8 +61,8 @@ class CreativeTeam extends Component {
                         </article>
 
                         <article className="row creative-member">
-                            <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                            <div className="col-12 col-md-3 pb-2">
+                                <img className="creative-image img-fluid" alt="JESSE INOCALLA" src="/static/cast/jesse1.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">JESSE INOCALLA (SOREN)</h3>
@@ -71,8 +71,8 @@ class CreativeTeam extends Component {
                         </article>
 
                         <article className="row creative-member">
-                            <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                            <div className="col-12 col-md-3 pb-2">
+                                <img className="creative-image img-fluid" alt="RACQUEL BELMONTE" src="/static/cast/racquel.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">RACQUEL BELMONTE (CLAUDIA)</h3>
@@ -81,8 +81,8 @@ class CreativeTeam extends Component {
                         </article>
 
                         <article className="row creative-member">
-                            <div className="col-12 col-md-3">
-                                <img className="creative-image" alt="AARON  EHASZ" src="" />
+                            <div className="col-12 col-md-3 pb-2">
+                                <img className="creative-image img-fluid" alt="JONATHAN HOLMES" src="/static/cast/jonathan1.PNG" />
                             </div>
                             <div className="col-12 col-md-9">
                                 <h3 className="media-heading">JONATHAN HOLMES (RUNAAN)</h3>

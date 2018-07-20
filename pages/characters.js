@@ -37,7 +37,7 @@ class Characters extends Component {
             }
             return (
                 <Link key={character.sys.id} href={`/character?eid=${character.sys.id}`}>
-                    <div className={`col-4 mb-4 text-white card character-thumb character-${index}`} >
+                    <div className={`col-12 col-md-4 mb-4 text-white card character-thumb character-${index}`} >
                         <img className="card-img img-fluid character-image" alt={character.fields.title} src={imgUrl} />
                         <div className="card-img-overlay character-content">
                             <div className="character-name">{character.fields.title ? character.fields.title : ''}</div>

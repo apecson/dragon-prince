@@ -36,6 +36,7 @@ class BTS extends Component {
     }
 
     renderPinned() {
+        console.log(this.props.pinned);
         if (!this.props.pinned.items) {
             return <div>Loading...</div>
         }
@@ -45,11 +46,11 @@ class BTS extends Component {
                 imgUrl = `${article.fields.heroImage.fields.file.url}?h=300&w=538&fit=fill`;
             }
             else {
-                imgUrl = '//images.ctfassets.net/sykm2zb64bkw/3hRcpuODd6S8uGOicqKoGI/39267d207cc393734d6a30ac0c890c93/moonshadowForm.png';
+                imgUrl = '/static/fallback.jpg';
             }
             return (
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
-                    <li className={`col-6 card text-white bg-transparent article-thumb pinned article-${index}`}>
+                    <li className={`col-sm-12 col-md-6 mb-4 card text-white bg-transparent article-thumb pinned article-${index}`}>
                         <img className="card-img article-image" height="300" alt={article.fields.title} src={imgUrl} />
                         <div className="card-img-overlay article-content--pinned article-content">
                             <h3>{article.fields.title}</h3>
@@ -71,7 +72,7 @@ class BTS extends Component {
                 imgUrl = `${article.fields.heroImage.fields.file.url}?h=190&w=340&fit=fill`;
             }
             else {
-                imgUrl = '//images.ctfassets.net/sykm2zb64bkw/3hRcpuODd6S8uGOicqKoGI/39267d207cc393734d6a30ac0c890c93/moonshadowForm.png';
+                imgUrl = '/static/fallback.jpg';
             }
             return (
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>

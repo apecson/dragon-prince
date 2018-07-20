@@ -416,7 +416,7 @@ header .social-links {
     font-size: 18px;
 }
 footer {
-    height: 122px;
+    min-height: 122px;
     background: #262626;
     background: linear-gradient(to bottom, #262626, #333);
 }
@@ -776,13 +776,18 @@ footer {
 .article-container {
     padding: 20px 0;
     @media (max-width: 640px) {
-        // padding: 20px;
+        padding: 20px;
 	}
 }
 .standard-article-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: 640px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+	}
 }
 .standard-article-hero {
     height: auto;
@@ -897,7 +902,7 @@ a.more-newsfeed {
             width: 100%;
         }
     }
-    @media (max-width: 640px) {
+    @media (max-width: 748px) {
         img {
             max-width: none;
             width: 100%;
@@ -912,6 +917,10 @@ a.more-newsfeed {
 
 .creative-wrapper {
     margin: 3rem 0 0;
+    .creative-image {
+        max-width: 250px;
+        width: 100%;
+    }
     .creative-member {
         margin: 20px 0;
     }
