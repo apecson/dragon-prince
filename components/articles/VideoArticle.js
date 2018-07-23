@@ -7,6 +7,8 @@ import moment from 'moment';
 import SocialLinks from '../ui/SocialLinks'
 import Link from 'next/link';
 
+import Polls from '../polls/polls'
+
 
 const client = createClient({
     space: "sykm2zb64bkw",
@@ -59,6 +61,8 @@ class Video extends Component {
                 <div className="character-body">
                     {renderHTML(markdown.toHTML(post.fields.body))}
                 </div>
+
+                <Polls />
                 
                 <Link href="/newsfeed">
                     <a className="more-newsfeed">More Newsfeed</a>
