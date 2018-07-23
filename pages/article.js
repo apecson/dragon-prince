@@ -4,6 +4,7 @@ import Layout from '../components/MyLayout';
 import StandardArticle from '../components/articles/StandardArticle'
 import GalleryArticle from '../components/articles/GalleryArticle'
 import VideoArticle from '../components/articles/VideoArticle'
+import PollArticle from '../components/articles/PollArticle'
 import DefaultArticle from '../components/articles/DefaultArticle'
 
 const client = createClient({
@@ -32,6 +33,9 @@ class Article extends Component {
             case 'Single Video':
                 view = <VideoArticle post={post} />
                 break;
+            case 'Poll':
+                view = <PollArticle post={post} />
+                break;
             default:
                 view = <DefaultArticle post={post} />
                 break;
@@ -45,7 +49,7 @@ class Article extends Component {
         return (
             <Layout>
                 <div className="container article-container">
-                    <h1 className="subtitle">News Feed</h1>
+                    <h1 className="subtitle">{post.fields.articleType === 'Poll' ? 'Poll' : 'News Feed'}</h1>
                     {this.articleRouter(post)}
                 </div>
             </Layout>
