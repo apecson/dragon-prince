@@ -1,6 +1,9 @@
 body {
     width: 100%;
 }
+a, button {
+    cursor: pointer;
+}
 
   .rc-menu-hidden {
     display: none;
@@ -523,7 +526,7 @@ footer {
     max-width: 340px;
     margin: 0 auto;
     padding: 0;
-    @media (max-width: 748px) {
+    @media (max-width: 768px) {
         max-width: 100%;
         padding: 0 1rem;
     }
@@ -569,7 +572,7 @@ footer {
     height: auto;
     padding: 2.5rem;
     color: #000000;
-    @media (max-width: 748px) {
+    @media (max-width: 768px) {
         padding: 1.5rem 0;
     }
 }
@@ -635,7 +638,7 @@ footer {
     &.large {
         height: 430px;
     }
-    @media (max-width: 748px) {
+    @media (max-width: 768px) {
         height: 275px;
         width: 100%;
         margin-bottom: 1rem!important;
@@ -651,12 +654,12 @@ footer {
 }
 .grid-wrapper {
     margin-bottom: 2rem;
-    @media (max-width: 748px) {
+    @media (max-width: 768px) {
         margin-bottom: 0;
     }
 }
 .row.hero-row .hero-post:last-child {
-    @media (max-width: 748px) {
+    @media (max-width: 768px) {
         margin-bottom: 0!important;
     }
 }
@@ -738,6 +741,7 @@ footer {
 .pinned {
     border: none;
     background: none;
+    cursor: pointer;
 }
 .article-content--pinned {
     background: url('/static/opaque.png');
@@ -917,6 +921,9 @@ a.more-newsfeed {
     align-items: center;
     padding: 0;
     text-align: left;
+    a, button {
+        cursor: pointer;
+    }
     img {
         width: 280px;
         height: 220px;
@@ -940,7 +947,7 @@ a.more-newsfeed {
             width: 100%;
         }
     }
-    @media (max-width: 748px) {
+    @media (max-width: 768px) {
         img {
             max-width: none;
             width: 100%;
@@ -951,6 +958,9 @@ a.more-newsfeed {
             width: 100%;
         }
     }
+}
+.meet-links {
+    text-align: center;
 }
 
 .creative-wrapper {
@@ -1001,7 +1011,7 @@ a.more-newsfeed {
     @media (max-width: 990px) {
         display: none;
     }
-    @media (max-width: 748px) {
+    @media (max-width: 768px) {
         display: none;
         position: relative;
         width: 300px;
@@ -1058,7 +1068,7 @@ a.more-newsfeed {
     &.polled {
         background: rgba(65, 117, 5, .7)
     }
-    @media (max-width: 748px) {
+    @media (max-width: 768px) {
         font-size: 1rem;
         padding-right: 85px;
     }
@@ -1070,7 +1080,7 @@ a.more-newsfeed {
     margin: 0 10px 0 0;
     background-size: cover;
     background-position: center;
-    @media (max-width: 748px) {
+    @media (max-width: 768px) {
         width: 75px;
         min-height: 75px;
     }
@@ -1091,7 +1101,7 @@ a.more-newsfeed {
         display: block;
         opacity: 1;
     }
-    @media (max-width: 748px) {
+    @media (max-width: 768px) {
         height: 100%;
         width: 75px;
         line-height: 117px;

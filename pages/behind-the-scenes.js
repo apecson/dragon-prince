@@ -78,7 +78,7 @@ class BTS extends Component {
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
                     <article className="row bts-article">
                         <div className="col-12 col-md-4 mb-2">
-                            <img className="media-object article-image" alt={article.fields.title} height="200" src={imgUrl} />
+                            <img className="media-object article-image image-wrapper" height="200" style={{backgroundImage: `url(${imgUrl}`}}  />
                         </div>
                         <div className="col-12 col-md-8">
                             <h3 className="media-heading">{article.fields.title}</h3>
