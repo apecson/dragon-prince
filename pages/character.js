@@ -4,6 +4,7 @@ import { createClient } from 'contentful'
 import React, { Component } from 'react'
 import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
+import ShareBlock from '../components/ui/ShareBlock'
 
 let client = createClient({
     space: "sykm2zb64bkw",
@@ -57,7 +58,7 @@ class Character extends Component {
         // })
     }
     getImg = () => {
-        
+
         const { images } = this.state;
 
         if (images.length > 0) {
@@ -77,7 +78,10 @@ class Character extends Component {
             <Layout>
                 <div className="container mt-4">
                     <h3 className="subtitle mb-0">Characters</h3>
-                    <h1 className="page-title mb-3">{character.fields.title}</h1>
+                    <div className="standard-article-title">
+                        <h1>{character.fields.title ? character.fields.title : null}</h1>
+                        <ShareBlock/>
+                    </div>
                     <img className="character-hero" src={hero ? hero.fields.file.url : ''} alt={character.fields.title} />
                     <div className="character-body">
                         {renderHTML(markdown.toHTML(character.fields.body))}

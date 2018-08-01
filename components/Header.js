@@ -86,9 +86,9 @@ class Header extends Component {
                 </Menu>
                 <div className="container">
                     <SocialLinks />
-                    <Link href="/">
+                    <a href="/">
                         <figure className="logo" alt="The Dragon Prince" />
-                    </Link>
+                    </a>
                 </div>
                 <Navigation />
             </header>

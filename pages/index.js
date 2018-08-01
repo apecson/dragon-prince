@@ -17,7 +17,7 @@ class Index extends Component {
     static async getInitialProps() {
         const posts = await client.getEntries({
             content_type: 'article',
-            // 'fields.articleType[in]': 'Standard Article, Single Video, Gallery, Poll',
+            'fields.articleType[in]': 'Standard Article, Single Video, Gallery, Poll',
             'fields.includeInFeed': 'true',
             limit: 6,
             order: 'sys.createdAt'
@@ -57,7 +57,7 @@ class Index extends Component {
                     </Link>
 
                     <div className="col-sm-12 col-md-4 col-12 special-column hero-item ml-auto">
-                        <Link href={`article/?eid=${items[0].sys.id}`}>
+                        <Link prefetch href={`article/?eid=${items[1].sys.id}`}>
                             <div className="card stackable row hero-post mb-4">
                                 <img className="card-img img-fluid home-image-wrapper"  style={{backgroundImage: `url('${ items[1].fields.heroImage ? items[1].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback}')`}} />
                                 <div className="card-img-overlay post-content">
@@ -66,7 +66,7 @@ class Index extends Component {
                                 </div>
                             </div>
                         </Link>
-                        <Link href={`article/?eid=${items[0].sys.id}`}>
+                        <Link prefetch href={`article/?eid=${items[2].sys.id}`}>
                             <div className="card stackable row hero-post">
                                 <img className="card-img img-fluid home-image-wrapper"  style={{backgroundImage: `url('${ items[2].fields.heroImage ? items[2].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback}')`}} />
                                 <div className="card-img-overlay post-content">
@@ -79,7 +79,7 @@ class Index extends Component {
                 </div>
 
                 <div className="row hero-row">
-                    <Link href={`article/?eid=${items[0].sys.id}`}>
+                    <Link prefetch href={`article/?eid=${items[3].sys.id}`}>
                         <div className="col-sm-12  col-md-4 col-12 hero-item hero-post">
                             <img className="card-img img-fluid home-image-wrapper"  style={{backgroundImage: `url('${ items[3].fields.heroImage ? items[3].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback}')`}} />
                             <div className="card-img-overlay post-content">
@@ -88,7 +88,7 @@ class Index extends Component {
                             </div>
                         </div>
                     </Link>
-                    <Link href={`article/?eid=${items[0].sys.id}`}>
+                    <Link prefetch href={`article/?eid=${items[4].sys.id}`}>
                         <div className="col-sm-12 col-md-4 col-12 hero-item hero-post">
                             <img className="card-img img-fluid home-image-wrapper"  style={{backgroundImage: `url('${ items[4].fields.heroImage ? items[4].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback}')`}} />
                             <div className="card-img-overlay post-content">
@@ -97,7 +97,7 @@ class Index extends Component {
                             </div>
                         </div>
                     </Link>
-                    <Link href={`article/?eid=${items[0].sys.id}`}>
+                    <Link prefetch href={`article/?eid=${items[5].sys.id}`}>
                         <div className="col-sm-12 col-md-4 col-12 hero-item hero-post">
                             <img className="card-img img-fluid home-image-wrapper"  style={{backgroundImage: `url('${ items[5].fields.heroImage ? items[5].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback}')`}} />
                             <div className="card-img-overlay post-content">
@@ -143,15 +143,9 @@ class Index extends Component {
                             <p>But a few months ago, a human wizard tricked and killed Thunder, leaving the border unguarded.</p>
                             <p>Now, the world stands on the brink of all-out war...</p>
                             <div className="about__button-list">
-                                <Link href="explore">
-                                    <Button text="Explore The World" size="large" />
-                                </Link>
-                                <Link href="characters">
-                                    <Button text="Meet The Characters" size="large" />
-                                </Link>
-                                <Link href="/story-lore">
-                                    <Button text="Discover The Lore" size="large" />
-                                </Link>
+                                <Button link="/world" text="World" size="large" />
+                                <Button link="/characters" text="Characters" size="large" />
+                                <Button link="/overview" text="Lore" size="large" />
                             </div>
                         </div>
                     </div>
@@ -165,8 +159,6 @@ class Index extends Component {
         if (!posts) {
             return <div>Loading...</div>
         }
-
-        console.log(process.env.REACT_APP_SPACE)
 
         return (
             <div>
