@@ -37,8 +37,7 @@ class Video extends Component {
 
     render() {
         const { post } = this.props;
-        
-        console.log(post)
+    
         return (
             <div>
                 <div className="standard-article-title">

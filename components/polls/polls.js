@@ -85,7 +85,6 @@ class Article extends Component {
                 return entry.update()
             })
             .then((entry) => {
-                console.log(`Entry ${entry.fields.title} updated to ${entry.fields.voteTotal['en-US']}`)
                 this.setPercentage()
             })
             .catch(console.error)

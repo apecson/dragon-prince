@@ -44,7 +44,7 @@ class Character extends Component {
     getPhotoUrl = (character) => {
         const self = this;
         // let ids = this.props.post.fields.photos || [];
-        // console.log(character)
+
         // var promises = ids.map(photo => {
         //     return client.getAsset(photo.sys.id).then((res) => {
         //         return res

@@ -66,7 +66,6 @@ class Gallery extends Component {
         const { post } = this.props;
         const { hero } = this.state;
 
-        console.log(this.props)
         return (
             <div>
                 <div className="standard-article-title">

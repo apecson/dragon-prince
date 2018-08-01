@@ -45,7 +45,6 @@ class Article extends Component {
 
     render() {
         const { post } = this.props;
-        console.log(post);
         return (
             <Layout>
                 <div className="container article-container pt-4">
