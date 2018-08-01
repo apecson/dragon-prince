@@ -14,7 +14,8 @@ class Character extends Component {
     constructor () {
         super()
         this.state = {
-            hero: null
+            hero: null,
+            images: null
         }
     }
 
@@ -28,6 +29,7 @@ class Character extends Component {
 
     componentDidMount() {
         this.getData();
+        this.getPhotoUrl();
     }
     
     async getData() {
@@ -38,20 +40,50 @@ class Character extends Component {
         })
     }
 
+    getPhotoUrl = (character) => {
+        const self = this;
+        // let ids = this.props.post.fields.photos || [];
+        // console.log(character)
+        // var promises = ids.map(photo => {
+        //     return client.getAsset(photo.sys.id).then((res) => {
+        //         return res
+        //     })
+        // })
+
+        // Promise.all(promises).then((images) => {
+        //     self.setState({
+        //         images
+        //     })
+        // })
+    }
+    getImg = () => {
+        
+        const { images } = this.state;
+
+        if (images.length > 0) {
+            return images.map(image => <figure key={image.sys.id}  alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url}?h=320&w=480&fit=fill)`}} /> );
+        } else {
+            return null
+        }
+    }
+
     render() {
         const { character } = this.props,
-              { hero } = this.state;
+              { hero, images } = this.state;
         if (!character) {
             return <div>Loading...</div>
         }
         return (
             <Layout>
-                <div className="container">
-                    <h3 className="subtitle">Characters</h3>
-                    <h1 className="page-title">{character.fields.title}</h1>
+                <div className="container mt-4">
+                    <h3 className="subtitle mb-0">Characters</h3>
+                    <h1 className="page-title mb-3">{character.fields.title}</h1>
                     <img className="character-hero" src={hero ? hero.fields.file.url : ''} alt={character.fields.title} />
                     <div className="character-body">
                         {renderHTML(markdown.toHTML(character.fields.body))}
+                    </div>
+                    <div className="gallery-article-gallery">
+                        {this.state.images ? this.getImg() : null}
                     </div>
                 </div>
             </Layout>

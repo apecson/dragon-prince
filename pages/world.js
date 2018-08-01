@@ -38,15 +38,13 @@ class World extends Component {
             }
             return (
                 <Link key={world.sys.id} href={`/article?eid=${world.sys.id}`}>
-                    <div className={`col-12 col-md-4 mb-4 text-white card world-thumb world-${index}`} >
-                        <img className="card-img img-fluid world-image" height="190" alt={world.fields.title} src={imgUrl} />
-                        <div className="card-img-overlay world-content">
-                            <h4>{world.fields.title}</h4>
+                    <div className={`col-12 col-md-4 mb-4 text-white card character-thumb character-${index}`} >
+                        <img className="card-img img-fluid character-image" style={{backgroundImage: `url('${imgUrl}')`}} />
+                        <div className="card-img-overlay character-content">
+                            <div className="character-name">{world.fields.title}</div>
                             {/* <p>{world.fields.summary}</p> */}
                         </div>
                     </div>
-
-
                 </Link>
             )
         });

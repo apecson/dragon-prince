@@ -46,8 +46,8 @@ class Index extends Component {
             <div className="container px-0">
                 <div className="row grid-wrapper">
                     <Link prefetch href={`article?eid=${items[0].sys.id}`}>
-                        <div className="card col-sm-8 col-12 hero-post large">
-                            <img className="card-img img-fluid" src={items[0].fields.heroImage ? items[0].fields.heroImage.fields.file.url + '?h=430&w=732&fit=fill' : fallback} />
+                        <div className="card col-sm-12 col-md-8 col-12 hero-post large">
+                            <img className="card-img img-fluid home-image-wrapper" style={{backgroundImage: `url('${ items[0].fields.heroImage ? items[0].fields.heroImage.fields.file.url + '?h=430&w=732&fit=fill' : fallback}')`}}  />
                             <div className="card-img-overlay post-content">
                                 <span className={`article-icon ${items[0].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                                 {items[0].fields.title}
@@ -56,10 +56,10 @@ class Index extends Component {
                         </div>
                     </Link>
 
-                    <div className="col-sm-4 col-12 special-column hero-item ml-auto">
+                    <div className="col-sm-12 col-md-4 col-12 special-column hero-item ml-auto">
                         <Link href={`article/?eid=${items[0].sys.id}`}>
                             <div className="card stackable row hero-post mb-4">
-                                <img className="card-img img-fluid" src={items[1].fields.heroImage ? items[1].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                                <img className="card-img img-fluid home-image-wrapper"  style={{backgroundImage: `url('${ items[1].fields.heroImage ? items[1].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback}')`}} />
                                 <div className="card-img-overlay post-content">
                                     <span className={`article-icon ${items[1].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                                     {items[1].fields.title}
@@ -68,7 +68,7 @@ class Index extends Component {
                         </Link>
                         <Link href={`article/?eid=${items[0].sys.id}`}>
                             <div className="card stackable row hero-post">
-                                <img className="card-img img-fluid" src={items[2].fields.heroImage ? items[2].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                                <img className="card-img img-fluid home-image-wrapper"  style={{backgroundImage: `url('${ items[2].fields.heroImage ? items[2].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback}')`}} />
                                 <div className="card-img-overlay post-content">
                                     <span className={`article-icon ${items[2].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                                     {items[2].fields.title}
@@ -80,8 +80,8 @@ class Index extends Component {
 
                 <div className="row hero-row">
                     <Link href={`article/?eid=${items[0].sys.id}`}>
-                        <div className="col-sm  col-md-4 col-12 hero-item hero-post">
-                            <img className="card-img img-fluid" src={items[3].fields.heroImage ? items[3].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                        <div className="col-sm-12  col-md-4 col-12 hero-item hero-post">
+                            <img className="card-img img-fluid home-image-wrapper"  style={{backgroundImage: `url('${ items[3].fields.heroImage ? items[3].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback}')`}} />
                             <div className="card-img-overlay post-content">
                                 <span className={`article-icon ${items[3].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                                 {items[3].fields.title}
@@ -89,8 +89,8 @@ class Index extends Component {
                         </div>
                     </Link>
                     <Link href={`article/?eid=${items[0].sys.id}`}>
-                        <div className="col-sm col-md-4 col-12 hero-item hero-post">
-                            <img className="card-img img-fluid" src={items[4].fields.heroImage ? items[4].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                        <div className="col-sm-12 col-md-4 col-12 hero-item hero-post">
+                            <img className="card-img img-fluid home-image-wrapper"  style={{backgroundImage: `url('${ items[4].fields.heroImage ? items[4].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback}')`}} />
                             <div className="card-img-overlay post-content">
                                 <span className={`article-icon ${items[4].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                                 {items[4].fields.title}
@@ -98,8 +98,8 @@ class Index extends Component {
                         </div>
                     </Link>
                     <Link href={`article/?eid=${items[0].sys.id}`}>
-                        <div className="col-sm-4 col-md-4 col-12 hero-item hero-post">
-                            <img className="card-img img-fluid" src={items[5].fields.heroImage ? items[5].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback} />
+                        <div className="col-sm-12 col-md-4 col-12 hero-item hero-post">
+                            <img className="card-img img-fluid home-image-wrapper"  style={{backgroundImage: `url('${ items[5].fields.heroImage ? items[5].fields.heroImage.fields.file.url + '?h=203&w=355&fit=fill' : fallback}')`}} />
                             <div className="card-img-overlay post-content">
                                 <span className={`article-icon ${items[5].fields.articleType.split(' ').join('-').toLowerCase()}`}></span>
                                 {items[5].fields.title}
@@ -130,12 +130,12 @@ class Index extends Component {
             <section className="home__about">
                 <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-lg-6">
                             <iframe width="100%" height="340"
-                                src={video.fields.youTubeVideo} frameBorder="0">
+                                src={`${video.fields.youTubeVideo}?rel=0&showinfo=0`} frameBorder="0">
                             </iframe>
                         </div>
-                        <div className="col-12 col-md-6">
+                        <div className="col-12 col-lg-6">
                             <h2>{about.fields.title}</h2>
                             <p>LONG AGO... Xadia was one land, rich in magic and wonder.</p>
                             <p>But a thousand years ago, humans (who are born without innate magical powers) discovered that by harvesting magical creatures, they could use Dark Magic.</p>

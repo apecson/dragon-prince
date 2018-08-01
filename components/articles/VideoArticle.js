@@ -65,7 +65,7 @@ class Video extends Component {
                 <Polls />
                 
                 <Link href="/newsfeed">
-                    <a className="more-newsfeed">More Newsfeed</a>
+                    <a className="more-newsfeed">MORE NEWSFEED</a>
                 </Link>
             </div>
         )

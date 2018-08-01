@@ -9,14 +9,14 @@ const Footer = () => (
         </div>
         <ul className="d-flex justify-content-center nav">
             <li className="nav-item">
-                <Link prefetch href="terms"><a className="text-white nav-link active">Terms of Service</a></Link>
+                <Link prefetch href="terms"><a className="text-white nav-link active">Terms of Use</a></Link>
             </li>
             <li className="nav-item">
                 <Link prefetch href="privacy-policy"><a className="text-white nav-link" >Privacy Policy</a></Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
                 <Link prefetch href="cookie-policy"><a className="text-white nav-link">Cookie Policy</a></Link>
-            </li>
+            </li> */}
         </ul>
     </footer>
 )
