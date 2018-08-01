@@ -50,7 +50,6 @@ class Characters extends Component {
     }
 
     render() {
-        console.log(this.props.characters);
         return (
             <Layout>
                 <div className="container pt-4 pb-4">

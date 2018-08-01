@@ -38,7 +38,6 @@ class Newsfeed extends Component {
     }
 
     renderPinned() {
-        console.log(this.props.pinned);
         if (!this.props.pinned.items) {
             return <div>Loading...</div>
         }

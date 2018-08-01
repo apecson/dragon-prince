@@ -23,7 +23,6 @@ class Cookie extends Component {
 
 
     render() {
-        console.log(this.props.cookie);
         return (
             <Layout>
                 <div className="container pt-4 pb-4">

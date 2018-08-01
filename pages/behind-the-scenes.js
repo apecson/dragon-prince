@@ -36,7 +36,6 @@ class BTS extends Component {
     }
 
     renderPinned() {
-        console.log(this.props.pinned);
         if (!this.props.pinned.items) {
             return <div>Loading...</div>
         }
@@ -94,7 +93,6 @@ class BTS extends Component {
     render() {
         const { pinned, articles } = this.props;
 
-        console.log(articles)
         return (
             <Layout>
                 <div className="container article-container">

@@ -25,7 +25,6 @@ class Policy extends Component {
 
 
     render() {
-        console.log(this.props.policy);
         return (
             <Layout>
                 <div className="container pt-4 pb-4">

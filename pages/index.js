@@ -37,7 +37,6 @@ class Index extends Component {
     renderPosts() {
 
         const { items } = this.props.posts;
-        console.log(items)
         if (!items) {
             return <div>Loading...</div>
         }

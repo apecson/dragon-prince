@@ -25,7 +25,6 @@ class Overview extends Component {
     }
 
     render() {
-        // console.log(this.props.about)
         return (
             <Layout>
                 <div className="container pt-4">
