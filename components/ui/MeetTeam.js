@@ -17,12 +17,14 @@ const MeetTeam = (props) => (
                         nulla luctus pharetra vulputate, felis tellus mollis orci, 
                         sed rhoncus pronin sapien nunc accuan eget.
                     </p>
-                    <a href="/creative-team">
-                        <Button text="Creative Team" size="large" />
-                    </a>
-                    <a href="/cast">
-                        <Button text="Cast" size="large" />
-                    </a>
+                    <div className="meet-links" >
+                        <a href="/creative-team">
+                            <Button text="Creative Team" size="large" />
+                        </a>
+                        <a href="/cast">
+                            <Button text="Cast" size="large" />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

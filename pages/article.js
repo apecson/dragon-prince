@@ -48,8 +48,8 @@ class Article extends Component {
         console.log(post);
         return (
             <Layout>
-                <div className="container article-container">
-                    <h1 className="subtitle">{post.fields.articleType === 'Poll' ? 'Poll' : 'News Feed'}</h1>
+                <div className="container article-container pt-4">
+                    <h1 className="subtitle mb-0">{post.fields.articleType === 'Poll' ? 'Poll' : 'News Feed'}</h1>
                     {this.articleRouter(post)}
                 </div>
             </Layout>

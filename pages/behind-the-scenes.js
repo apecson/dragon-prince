@@ -51,7 +51,7 @@ class BTS extends Component {
             return (
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
                     <li className={`col-sm-12 col-md-6 mb-4 card text-white bg-transparent article-thumb pinned article-${index}`}>
-                        <img className="card-img article-image" height="300" alt={article.fields.title} src={imgUrl} />
+                        <img className="card-img article-image image-wrapper" height="300" style={{backgroundImage: `url('${imgUrl}')`}}  />
                         <div className="card-img-overlay article-content--pinned article-content">
                             <h3>{article.fields.title}</h3>
                             <p>{article.fields.summary}</p>
@@ -78,7 +78,7 @@ class BTS extends Component {
                 <Link key={article.sys.id} href={`/article?eid=${article.sys.id}`}>
                     <article className="row bts-article">
                         <div className="col-12 col-md-4 mb-2">
-                            <img className="media-object article-image" alt={article.fields.title} height="200" src={imgUrl} />
+                            <img className="media-object article-image image-wrapper" height="200" style={{backgroundImage: `url(${imgUrl}`}}  />
                         </div>
                         <div className="col-12 col-md-8">
                             <h3 className="media-heading">{article.fields.title}</h3>

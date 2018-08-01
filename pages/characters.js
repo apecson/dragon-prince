@@ -38,14 +38,12 @@ class Characters extends Component {
             return (
                 <Link key={character.sys.id} href={`/character?eid=${character.sys.id}`}>
                     <div className={`col-12 col-md-4 mb-4 text-white card character-thumb character-${index}`} >
-                        <img className="card-img img-fluid character-image" alt={character.fields.title} src={imgUrl} />
+                        <figure className="card-img img-fluid character-image" style={{backgroundImage: `url('${imgUrl}')`}} />
                         <div className="card-img-overlay character-content">
                             <div className="character-name">{character.fields.title ? character.fields.title : ''}</div>
                             {/* <p>{character.fields.summary ? character.fields.summary : ''}</p> */}
                         </div>
                     </div>
-
-
                 </Link>
             )
         });
@@ -58,7 +56,7 @@ class Characters extends Component {
                 <div className="container pt-4 pb-4">
                     <h3 className="subtitle">Story & Lore</h3>
                     <h1 className="page-title">{this.title}</h1>
-                    <div className="row character-row">
+                    <div className="row character-row mt-4 mb-4">
                         {this.renderCharacters()}
                     </div>
                 </div>

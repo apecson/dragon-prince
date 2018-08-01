@@ -45,7 +45,7 @@ class Standard extends Component {
                     <h1>{post.fields.title ? post.fields.title : null}</h1>
                     <SocialLinks/>
                 </div>
-                <div className="standard-article-hero">
+                <div className={hero ? `standard-article-hero isImage` : `standard-article-hero`}>
                     <img src={ hero ? `${hero.fields.file.url}?h=540&w=980&fit=fill` : null } />
                 </div>
                 <div className="standard-article-credit">
@@ -64,7 +64,7 @@ class Standard extends Component {
                 <Polls poll={post.fields.relatedObjects}/>
                 
                 <Link href="/newsfeed">
-                    <a className="more-newsfeed">More Newsfeed</a>
+                    <a className="more-newsfeed">MORE NEWSFEED</a>
                 </Link>
             </div>
         )

@@ -3,7 +3,7 @@ import { createClient } from 'contentful'
 import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
 import moment from 'moment';
-import SocialLinks from '../ui/SocialLinks'
+import ShareBlock from '../ui/ShareBlock'
 import Link from 'next/link'
 
 const client = createClient({
@@ -77,9 +77,9 @@ class Standard extends Component {
             <div>
                 <div className="standard-article-title">
                     <h1>{post.fields.title ? post.fields.title : null}</h1>
-                    <SocialLinks/>
+                    <ShareBlock id={post.sys.id}/>
                 </div>
-                <div className="standard-article-hero">
+                <div className={hero ? `standard-article-hero isImage` : `standard-article-hero`}>
                     <img src={ hero ? `${hero.fields.file.url}?h=540&w=980&fit=fill` : null } />
                 </div>
                 <div className="standard-article-credit">
@@ -100,10 +100,21 @@ class Standard extends Component {
                 </div>
 
                 <Link href="/newsfeed">
-                    <a className="more-newsfeed">More Newsfeed</a>
+                    <a className="more-newsfeed">MORE NEWSFEED</a>
                 </Link>
             </div>
         )
     }
 }
 export default Standard
+
+{/* <script type="text/javascript"> */}
+{/* var container = document.getElementById('share-block'); */}
+{/* document.addEventListener('click', function( event ) { */}
+    // if($('#share').is(':checked') && $('.share-block-social').css('opacity', '1')){
+        // if (container !== event.target && !container.contains(event.target)) {    
+            // $('#share').prop('checked', false);
+        // }			
+    // }
+// });
+{/* </script> */}

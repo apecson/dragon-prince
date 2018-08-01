@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaTumblr, FaTwitter } from 'react-icons/lib/fa
 
 const SocialLinks = () => (
     <div className="social-links">
-        <a className="Twitter" href="https://twitter.com/dragonprinceoff">
+        <a className="Twitter" href="https://twitter.com/thedragonprince">
             <FaTwitter size={24} />
         </a>
         <a className="Facebook" href="https://www.facebook.com/dragonprinceofficial">

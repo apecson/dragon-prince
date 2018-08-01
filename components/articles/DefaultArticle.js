@@ -74,7 +74,7 @@ class DefaultArticle extends Component {
                     <h1>{post.fields.title ? post.fields.title : null}</h1>
                     <SocialLinks/>
                 </div>
-                <div className="standard-article-hero">
+                <div className={hero ? `standard-article-hero isImage` : `standard-article-hero`}>
                     <img src={ hero ? hero.fields.file.url : null } />
                 </div>
                 <div className="article">
@@ -90,7 +90,7 @@ class DefaultArticle extends Component {
                 </div>
 
                 <Link href="/newsfeed">
-                    <a className="more-newsfeed">More Newsfeed</a>
+                    <a className="more-newsfeed">MORE NEWSFEED</a>
                 </Link>
             </div>
         )
