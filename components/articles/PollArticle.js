@@ -3,7 +3,7 @@ import { createClient } from 'contentful'
 import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
 import moment from 'moment';
-import SocialLinks from '../ui/SocialLinks'
+import ShareBlock from '../ui/ShareBlock'
 import Link from 'next/link'
 import Polls from '../polls/polls'
 
@@ -43,7 +43,7 @@ class Standard extends Component {
             <div>
                 <div className="standard-article-title">
                     <h1>{post.fields.title ? post.fields.title : null}</h1>
-                    <SocialLinks/>
+                    <ShareBlock/>
                 </div>
                 <div className={hero ? `standard-article-hero isImage` : `standard-article-hero`}>
                     <img src={ hero ? `${hero.fields.file.url}?h=540&w=980&fit=fill` : null } />

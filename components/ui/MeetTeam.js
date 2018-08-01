@@ -18,12 +18,8 @@ const MeetTeam = (props) => (
                         sed rhoncus pronin sapien nunc accuan eget.
                     </p>
                     <div className="meet-links" >
-                        <a href="/creative-team">
-                            <Button text="Creative Team" size="large" />
-                        </a>
-                        <a href="/cast">
-                            <Button text="Cast" size="large" />
-                        </a>
+                        <Button link="/creative-team" text="Creative Team" size="large" />
+                        <Button link="/cast" text="Cast" size="large" />
                     </div>
                 </div>
             </div>
