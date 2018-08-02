@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
+import { createClient } from 'contentful'
 import Link from 'next/link'
 import { slide as Menu } from 'react-burger-menu'
 import Navigation from './Navigation';
 import SocialLinks from '../components/ui/SocialLinks'
+import CountBanner from '../components/Countdown'
+
+const client = createClient({
+    space: "sykm2zb64bkw",
+    accessToken: "9424211d562951847401a3cbf1ab7bd6c266a6b20c7b68f7500e8b1de8fc1e14"
+});
 
 const linkStyle = {
     marginRight: 15
@@ -13,12 +20,23 @@ class Header extends Component {
         super(props)
         this.state = {
             fixed: false,
-            mobile: false
+            mobile: false,
+            countdown: null
         }
     }
 
 
+    async getCountDown () {
+        const countdown = await client.getEntry('6e0O82QvFSU04akAUaQkWu'); //countdown
+
+        this.setState({
+            countdown
+        })
+    }
+
     componentDidMount () {
+        this.getCountDown()
+
         if ( window.screen.availWidth >= 641 ) {
             window.addEventListener('scroll', this.handleScroll)
         } else {
@@ -50,6 +68,8 @@ class Header extends Component {
     }
 
     render() {
+        const {countdown} = this.state;
+
         return (
             <header className={ this.state.fixed ? 'fixed' : null }>
                 <Menu>
@@ -91,6 +111,7 @@ class Header extends Component {
                     </a>
                 </div>
                 <Navigation />
+                { countdown ? <CountBanner date={countdown.fields.targetDate} event={countdown.fields.body} /> : null}
             </header>
         )
     }

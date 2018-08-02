@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaTumblr, FaTwitter } from 'react-icons/lib/fa
 const SocialLinks = ({id}) => (
   <div id="share-block">
     <input type="checkbox" className="checkbox" id="share" />
-    <label for="share" className="label"><img src="/static/share.png" alt="Share" className="img-responsive share-video" /></label>
+    <label htmlFor="share" className="label"><img src="/static/share.png" alt="Share" className="img-responsive share-video" /></label>
     <div className="share-block-social" style={{opacity: 1}}>
       <ul className="share-block-ul">
           <a href={`http://www.twitter.com/share?url=http://www.thedragonprince.com/article?eid=${id}`} target="_blank">
