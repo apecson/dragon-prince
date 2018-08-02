@@ -25,12 +25,10 @@ class Index extends Component {
         // Get static About and Video content
         const about = await client.getEntry('2Y0bGanLnGYMKUocyMUA88'); // about
         const video = await client.getEntry('5w382WBzbO2yowQaIeImaE'); // video
-        const countdown = await client.getEntry('6e0O82QvFSU04akAUaQkWu'); //countdown
         return {
             posts,
             about,
-            video,
-            countdown,
+            video
         }
     }
 
@@ -162,7 +160,6 @@ class Index extends Component {
         return (
             <div>
                 <Layout>
-                    <CountBanner date={this.props.countdown.fields.targetDate} event={this.props.countdown.fields.body} />
                     <div className="container mt-4 pb-4">
                         <h1 className="page-title">The Latest</h1>
                         {this.renderPosts()}

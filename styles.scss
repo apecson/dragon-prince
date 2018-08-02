@@ -42,6 +42,7 @@ a, button {
 
   .rc-menu-submenu-popup {
     position: absolute;
+    z-index: 500;
   }
 
   .rc-menu .rc-menu-submenu-title .anticon,
@@ -295,13 +296,13 @@ header {
         background: url('/static/logoMini.png') no-repeat center;
         background-size: contain;
         height: 50px;
-        width: 70%;
+        max-width: 200px;
         margin: 0 auto;
         .fixed &{
             background: url('/static/logoMini.png') no-repeat center;
             background-size: contain;
             height: 50px;
-            width: 70%;
+            max-width: 200px;
             margin: 0 auto;
         }
     }
@@ -391,17 +392,17 @@ header {
 }
 
 .content {
-    padding-top: 300px;
+    padding-top: 341px;
     transition: .3s ease-in-out;
     overflow: hidden;
     @media (max-width: 768px) {
-        padding-top: 50px;
+        padding-top: 102px;
     }
 }
 .fixed ~ .content {
     padding-top: 190px;
     @media (max-width: 768px) {
-        padding-top: 50px;
+        padding-top: 102px;
     }
 }
 
@@ -466,13 +467,22 @@ footer {
     &:last-of-type {
         border-right: 1px solid #979797;
     }
-    &:hover {
+    svg {
+        display: none;
+    }
+    &:hover, &.active {
         background: rgb(2,1,1);
         background: linear-gradient(180deg, rgba(2,1,1,1) 0%, rgba(55,54,54,1) 40%);
         color: #FFFFFF;
+        position: relative;
     }
-    &:hover a {
+    &:hover a, &.active a {
         color: #FFFFFF;
+    }
+    &.active a svg {
+        position: relative;
+        display: inline;
+        top: -1px;
     }
 }
 .main-menu li a {
