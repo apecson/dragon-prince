@@ -69,7 +69,7 @@ class Header extends Component {
 
     render() {
         const {countdown} = this.state;
-        console.log(countdown)
+
         return (
             <header className={ this.state.fixed ? 'fixed' : null }>
                 <Menu>

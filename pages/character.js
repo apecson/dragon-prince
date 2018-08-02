@@ -43,19 +43,19 @@ class Character extends Component {
 
     getPhotoUrl = (character) => {
         const self = this;
-        // let ids = this.props.post.fields.photos || [];
+        let ids = this.props.character.fields.photos || [];
 
-        // var promises = ids.map(photo => {
-        //     return client.getAsset(photo.sys.id).then((res) => {
-        //         return res
-        //     })
-        // })
+        var promises = ids.map(photo => {
+            return client.getAsset(photo.sys.id).then((res) => {
+                return res
+            })
+        })
 
-        // Promise.all(promises).then((images) => {
-        //     self.setState({
-        //         images
-        //     })
-        // })
+        Promise.all(promises).then((images) => {
+            self.setState({
+                images
+            })
+        })
     }
     getImg = () => {
 
