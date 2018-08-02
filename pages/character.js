@@ -16,7 +16,8 @@ class Character extends Component {
         super()
         this.state = {
             hero: null,
-            images: null
+            images: null,
+            videos: null
         }
     }
 
@@ -31,6 +32,7 @@ class Character extends Component {
     componentDidMount() {
         this.getData();
         this.getPhotoUrl();
+        this.getVideoUrl();
     }
     
     async getData() {
@@ -41,9 +43,45 @@ class Character extends Component {
         })
     }
 
-    getPhotoUrl = (character) => {
+    getVideoUrl = () => {
+        const self = this;
+        let ids = this.props.character.fields.videos || [];
+
+        var promises = ids.map(video => {
+            return client.getEntry(video.sys.id).then((res) => {
+                return res
+            })
+        })
+
+        Promise.all(promises).then((videos) => {
+            self.setState({
+                videos
+            })
+        })
+    }
+
+    getVideo = () => {
+
+        const { videos } = this.state;
+        console.log(videos)
+
+        if (videos.length > 0) {
+            return videos.map(video => {
+                return ( 
+                    <iframe key={video.sys.id} alt={video.fields.title} width="100%" height="340"
+                        src={`${video.fields.youTubeVideo}?rel=0&showinfo=0`} frameBorder="0">
+                    </iframe>
+                )
+            })
+        } else {
+            return null
+        }
+    }
+
+    getPhotoUrl = () => {
         const self = this;
         let ids = this.props.character.fields.photos || [];
+        console.log(this.props.character)
 
         var promises = ids.map(photo => {
             return client.getAsset(photo.sys.id).then((res) => {
@@ -70,7 +108,7 @@ class Character extends Component {
 
     render() {
         const { character } = this.props,
-              { hero, images } = this.state;
+              { hero, images, videos } = this.state;
         if (!character) {
             return <div>Loading...</div>
         }
@@ -86,8 +124,11 @@ class Character extends Component {
                     <div className="character-body">
                         {renderHTML(markdown.toHTML(character.fields.body))}
                     </div>
+                    <div className="col-12">
+                        {videos ? this.getVideo() : null}
+                    </div>
                     <div className="gallery-article-gallery">
-                        {this.state.images ? this.getImg() : null}
+                        {images ? this.getImg() : null}
                     </div>
                 </div>
             </Layout>
