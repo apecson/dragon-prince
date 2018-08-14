@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
 import ShareBlock from '../components/ui/ShareBlock'
+import Lightbox from 'react-images';
 
 let client = createClient({
     space: "sykm2zb64bkw",
@@ -17,7 +18,9 @@ class Character extends Component {
         this.state = {
             hero: null,
             images: null,
-            videos: null
+            videos: null,
+            viewer: {},
+            visible: false
         }
     }
 
@@ -63,7 +66,6 @@ class Character extends Component {
     getVideo = () => {
 
         const { videos } = this.state;
-        console.log(videos)
 
         if (videos.length > 0) {
             return videos.map(video => {
@@ -81,7 +83,6 @@ class Character extends Component {
     getPhotoUrl = () => {
         const self = this;
         let ids = this.props.character.fields.photos || [];
-        console.log(this.props.character)
 
         var promises = ids.map(photo => {
             return client.getAsset(photo.sys.id).then((res) => {
@@ -100,10 +101,21 @@ class Character extends Component {
         const { images } = this.state;
 
         if (images.length > 0) {
-            return images.map(image => <figure key={image.sys.id}  alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url}?h=320&w=480&fit=fill)`}} /> );
+            return images.map(image => <figure key={image.sys.id} onClick={() => this.onImageClick(image.fields.title, `${image.fields.file.url}?h=320&w=480&fit=fill`)} alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url}?h=320&w=480&fit=fill)`}} /> );
         } else {
             return null
         }
+    }
+
+    onImageClick = (title, image) => {
+        console.log(title, image)
+        this.setState({
+            viewer: { 
+                src: image,
+                caption: title
+            },
+            visible: true
+        })
     }
 
     render() {
@@ -129,6 +141,17 @@ class Character extends Component {
                     </div>
                     <div className="gallery-article-gallery">
                         {images ? this.getImg() : null}
+                    </div>
+                    <div id="viewer-container">
+                        <Lightbox
+                            images={[
+                                this.state.viewer
+                            ]}
+                            isOpen={this.state.visible}
+                            onClose={() => this.setState({visible: false})}
+                            backdropClosesModal={true}
+                            showImageCount={false}
+                        />
                     </div>
                 </div>
             </Layout>

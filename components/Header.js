@@ -83,9 +83,6 @@ class Header extends Component {
                     <Link prefetch href="/behind-the-scenes">
                         <a className="bm-item" >Behind The Scenes</a>
                     </Link>
-                    <Link prefetch href="/overview">
-                        <a className="bm-item" >Story & Lore</a>
-                    </Link>
                     <ul className="mini-menu">
                         <Link prefetch href="/overview">
                             <a className="bm-item--small" >Story Overview</a>
@@ -97,6 +94,9 @@ class Header extends Component {
                             <a className="bm-item--small">World</a>
                         </Link>
                     </ul>
+                    <Link prefetch href="/overview">
+                        <a className="bm-item" >Story & Lore</a>
+                    </Link>
                     <div className="bm-social">
                         <h3>Social</h3>
                         <hr />

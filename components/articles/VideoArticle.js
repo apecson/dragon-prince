@@ -7,8 +7,6 @@ import moment from 'moment';
 import ShareBlock from '../ui/ShareBlock'
 import Link from 'next/link';
 
-import Polls from '../polls/polls'
-
 
 const client = createClient({
     space: "sykm2zb64bkw",
@@ -54,14 +52,12 @@ class Video extends Component {
                     ) : null }
                 </div>
                 <div className="article">
-                    <p>{moment(post.sys.createdAt).format("MMMM Do YYYY")}</p>
+                    <p>{post.fields.releaseDate ? moment(post.fields.releaseDate).format("MMMM Do YYYY") : ''}</p>
                 </div>
 
                 <div className="character-body">
                     {renderHTML(markdown.toHTML(post.fields.body))}
                 </div>
-
-                <Polls />
                 
                 <Link href="/newsfeed">
                     <a className="more-newsfeed">MORE NEWSFEED</a>

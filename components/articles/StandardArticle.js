@@ -5,6 +5,7 @@ import renderHTML from 'react-render-html';
 import moment from 'moment';
 import ShareBlock from '../ui/ShareBlock'
 import Link from 'next/link'
+import Lightbox from 'react-images';
 
 const client = createClient({
     space: "sykm2zb64bkw",
@@ -16,7 +17,9 @@ class Standard extends Component {
         super()
         this.state = {
             hero: null,
-            author: null
+            author: null,
+            viewer: {},
+            visible: false
         }
     }
 
@@ -62,12 +65,22 @@ class Standard extends Component {
         const { images } = this.state;
 
         if (images.length > 0) {
-            return images.map(image => <figure key={image.sys.id}  alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url}?h=320&w=480&fit=fill)`}} /> );
+            return images.map(image => <figure key={image.sys.id} onClick={() => this.onImageClick(image.fields.title, `${image.fields.file.url}?h=320&w=480&fit=fill`)} alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url}?h=320&w=480&fit=fill)`}} /> );
         } else {
             return null
         }
     }
 
+    onImageClick = (title, image) => {
+        console.log(title, image)
+        this.setState({
+            viewer: { 
+                src: image,
+                caption: title
+            },
+            visible: true
+        })
+    }
 
     render() {
         const { post } = this.props;
@@ -88,7 +101,7 @@ class Standard extends Component {
                 </div>
                 <div className="standard-article-author">
                     <span>{ author ? author.fields.title : null }</span>
-                    <span>{moment(post.sys.createdAt).format("MMMM Do YYYY")}</span>
+                    <span>{post.fields.releaseDate ? moment(post.fields.releaseDate).format("MMMM Do YYYY") : ''}</span>
                 </div>
     
                 <div className="character-body">
@@ -99,6 +112,18 @@ class Standard extends Component {
                     {this.state.images ? this.getImg() : null}
                 </div>
 
+                <div id="viewer-container">
+                    <Lightbox
+                        images={[
+                            this.state.viewer
+                        ]}
+                        isOpen={this.state.visible}
+                        onClose={() => this.setState({visible: false})}
+                        backdropClosesModal={true}
+                        showImageCount={false}
+                    />
+                </div>
+
                 <Link href="/newsfeed">
                     <a className="more-newsfeed">MORE NEWSFEED</a>
                 </Link>
@@ -107,14 +132,3 @@ class Standard extends Component {
     }
 }
 export default Standard
-
-{/* <script type="text/javascript"> */}
-{/* var container = document.getElementById('share-block'); */}
-{/* document.addEventListener('click', function( event ) { */}
-    // if($('#share').is(':checked') && $('.share-block-social').css('opacity', '1')){
-        // if (container !== event.target && !container.contains(event.target)) {    
-            // $('#share').prop('checked', false);
-        // }			
-    // }
-// });
-{/* </script> */}

@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { createClient } from 'contentful'
 import { markdown } from 'markdown';
 import renderHTML from 'react-render-html';
-import Lightbox from 'react-images';
 import moment from 'moment';
 import ShareBlock from '../ui/ShareBlock'
 import Link from 'next/link'
+import Lightbox from 'react-images';
 
 const client = createClient({
     space: "sykm2zb64bkw",
@@ -18,7 +18,9 @@ class Gallery extends Component {
         this.state = {
             images: null,
             open: false,
-            hero: null
+            hero: null,
+            viewer: {},
+            visible: false
         }
     }
 
@@ -56,10 +58,21 @@ class Gallery extends Component {
         const { images } = this.state;
 
         if (images.length > 0) {
-            return images.map(image => <figure key={image.sys.id}  alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url})`}} /> );
+            return images.map(image => <figure key={image.sys.id} onClick={() => this.onImageClick(image.fields.title, `${image.fields.file.url}?h=320&w=480&fit=fill`)} alt={image.fields.title} style={{backgroundImage: `url(${image.fields.file.url})`}} /> );
         } else {
             return null
         }
+    }
+
+    onImageClick = (title, image) => {
+        console.log(title, image)
+        this.setState({
+            viewer: { 
+                src: image,
+                caption: title
+            },
+            visible: true
+        })
     }
 
     render() {
@@ -76,7 +89,7 @@ class Gallery extends Component {
                     <img src={ hero ? hero.fields.file.url : null } />
                 </div>
                 <div className="article">
-                    <p>{moment(post.sys.createdAt).format("MMMM Do YYYY")}</p>
+                    <p>{post.fields.releaseDate ? moment(post.fields.releaseDate).format("MMMM Do YYYY") : ''}</p>
                 </div>
 
                 <div className="character-body">
@@ -87,7 +100,18 @@ class Gallery extends Component {
                     {this.state.images ? this.getImg() : null}
                 </div>
 
-                {/* <Lightbox key={image.sys.id} images={[{ src: image.fields.file.url }, { src: image.fields.file.url }]} isOpen={this.state.open} onClose={() => {this.setState({open: false})}} /> */}
+                <div id="viewer-container">
+                    <Lightbox
+                        images={[
+                            this.state.viewer
+                        ]}
+                        isOpen={this.state.visible}
+                        onClose={() => this.setState({visible: false})}
+                        backdropClosesModal={true}
+                        showImageCount={false}
+                    />
+                </div>
+
                 <Link href="/newsfeed">
                     <a className="more-newsfeed">MORE NEWSFEED</a>
                 </Link>
