@@ -19,7 +19,7 @@ class World extends Component {
         const worlds = await client.getEntries({
             'fields.section': 'World',
             'content_type': 'article',
-            order: 'sys.createdAt'
+            order: 'fields.releaseDate'
         });
 
         return {

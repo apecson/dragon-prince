@@ -32,22 +32,22 @@ class Overview extends Component {
                     <h1 className="page-title">{this.title}</h1>
                     <p>{renderHTML(markdown.toHTML(this.props.about.fields.body))}</p>
                     <div className="row">
-                        <div className="col-sm-6">
-                            <div className="card text-white bg-dark mb-3">
-                                <div className="card-body">
-                                    <h5 className="card-title">Characters</h5>
-                                    <Link href="/characters"><a href="#" className="btn btn-primary">Meet the Characters</a></Link>
+                        <Link href={`/characters`}>
+                            <div className={`col-12 col-md-6 mb-4 text-white card character-thumb`} >
+                                <figure className="card-img img-fluid character-image overview-image" style={{backgroundImage: `url('/static/MeetCharacters_BG.png')`}} />
+                                <div className="card-img-overlay character-content">
+                                    <div className="character-name">Characters</div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-sm-6">
-                            <div className="card text-white bg-dark mb-3">
-                                <div className="card-body">
-                                    <h5 className="card-title">World</h5>
-                                    <Link href="/world"><a href="#" className="btn btn-primary">Explore the World</a></Link>
+                        </Link>
+                        <Link href='/world'>
+                            <div className={`col-12 col-md-6 mb-4 text-white card character-thumb`} >
+                                <figure className="card-img img-fluid character-image overview-image" style={{backgroundImage: `url('/static/ExploreWorld_BG.png')`}} />
+                                <div className="card-img-overlay character-content">
+                                    <div className="character-name">World</div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </Layout >

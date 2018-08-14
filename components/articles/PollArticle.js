@@ -54,7 +54,7 @@ class Standard extends Component {
                 </div>
                 <div className="standard-article-author">
                     <span>{ author ? author.fields.title : null }</span>
-                    <span>{moment(post.sys.createdAt).format("MMMM Do YYYY")}</span>
+                    <span>{post.fields.releaseDate ? moment(post.fields.releaseDate).format("MMMM Do YYYY") : ''}</span>
                 </div>
     
                 <div className="character-body">

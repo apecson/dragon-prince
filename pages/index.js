@@ -20,7 +20,7 @@ class Index extends Component {
             'fields.articleType[in]': 'Standard Article, Single Video, Gallery, Poll',
             'fields.includeInFeed': 'true',
             limit: 6,
-            order: 'sys.createdAt'
+            order: 'fields.releaseDate'
         });
         // Get static About and Video content
         const about = await client.getEntry('2Y0bGanLnGYMKUocyMUA88'); // about
@@ -127,18 +127,16 @@ class Index extends Component {
             <section className="home__about">
                 <div className="container">
                     <div className="row align-items-center">
-                        <div className="col-12 col-lg-6">
-                            <iframe width="100%" height="340"
-                                src={`${video.fields.youTubeVideo}?rel=0&showinfo=0`} frameBorder="0">
-                            </iframe>
+                        <div className="col-12 mb-40">
+                            <div class="home__about__video">
+                                <iframe width='500' height='294'
+                                    src={`${video.fields.youTubeVideo}?rel=0&showinfo=0`} frameBorder="0">
+                                </iframe>
+                            </div>
                         </div>
-                        <div className="col-12 col-lg-6">
-                            <h2>{about.fields.title}</h2>
-                            <p>LONG AGO... Xadia was one land, rich in magic and wonder.</p>
-                            <p>But a thousand years ago, humans (who are born without innate magical powers) discovered that by harvesting magical creatures, they could use Dark Magic.</p>
-                            <p>Horrified by what they saw, the dragons and elves drove all the humans out of Xadia and into the west. And so the continent was divided in two. For centuries, the human kingdoms and Xadia were divided. The king of the dragons, Thunder, defended the border.</p>
-                            <p>But a few months ago, a human wizard tricked and killed Thunder, leaving the border unguarded.</p>
-                            <p>Now, the world stands on the brink of all-out war...</p>
+                        <div className="col-12">
+                            {/* <h2>{about.fields.title}</h2> */}
+                            <p className="mb-40">In a land divided by ages of war and strife, three kids from opposite sides of the battle discover a secret that could change everything.</p>
                             <div className="about__button-list">
                                 <Button link="/world" text="World" size="large" />
                                 <Button link="/characters" text="Characters" size="large" />
@@ -153,6 +151,8 @@ class Index extends Component {
 
     render() {
         const { posts } = this.props;
+        console.log(posts)
+
         if (!posts) {
             return <div>Loading...</div>
         }

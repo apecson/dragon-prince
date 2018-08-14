@@ -19,14 +19,14 @@ class BTS extends Component {
             'fields.articleType[in]': 'Standard Article, Single Video, Gallery, Poll',
             'fields.isPinned': 'true',
             'content_type': 'article',
-            order: 'sys.createdAt',
+            order: 'fields.releaseDate',
             limit: 2
         });
 
         const articles = await client.getEntries({
             'fields.section': 'UpdatesAndVideos',
             'content_type': 'article',
-            order: 'sys.createdAt'
+            order: 'fields.releaseDate'
         });
 
         return {
