@@ -14,7 +14,7 @@ const renderer = ({ event, days, hours, minutes, seconds, completed }) => {
         // Render a countdown
         return <div className="countdown">
             {event} {days} days, {hours} hours, {minutes} minutes, {seconds} seconds
-            <a href="https://www.netflix.com/title/80212245"><span className="netflix-icon"></span></a>
+            <a target="_blank" href="https://www.netflix.com"><span className="netflix-icon"></span></a>
         </div>;
     }
 };

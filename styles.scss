@@ -499,6 +499,18 @@ footer {
         top: -1px;
     }
 }
+li.rc-menu-item {
+    &:hover, &.active {
+        background: rgb(2,1,1);
+        background: linear-gradient(180deg, rgba(168, 6, 14, 1) 0%, rgba(55,54,54,.3) 98%);
+        position: relative;
+    }
+    &.active a svg {
+        position: relative;
+        display: inline;
+        top: -1px;
+    }  
+}
 .main-menu li a {
     display: block;
     color: #161616;
